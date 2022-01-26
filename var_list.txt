@@ -1,0 +1,468 @@
+id_municipio_6: 
+ID: 
+year: 
+FID: 
+x: 
+y: 
+forest: 
+area: 
+nn_forest: 
+Countryeng: 
+GEZ_TERM: 
+un: 
+forest.diff: 
+forest.l: 
+nn_forest.l: 
+defo: 
+polity2: 
+election_DPI: 
+margin: 
+PCGDP.l: 
+PCGDP.change.l: 
+Pop.growth.l: 
+democracy_BX: 
+margin.norm: 
+close80: 
+close90: 
+lead.election_DPI: 
+lag.election_DPI: 
+tot_forest: 
+system:index: 
+aspect: 
+elevation: 
+hillshade: 
+slope: 
+.geo: 
+V1: 
+burned1: 
+gpw1: 
+ntl_m1: 
+urbanland1: 
+percentW1: 
+rain1: 
+burned2: 
+sumdef2: 
+gpw2: 
+ntl_m2: 
+urbanland2: 
+percentW2: 
+X: 
+nearaeroviario_FID: 
+near_aeroviario: 
+nearaquaduto_FID: 
+near_aquaduto: 
+neardutonao_FID: 
+near_dutonao: 
+neardutoviario_FID: 
+near_dutoviario: 
+nearferroviario_FID: 
+near_ferroviario: 
+neargasoduto_FID: 
+near_gasoduto: 
+nearhidrovia_FID: 
+near_hidrovia: 
+nearlinhadetras_FID: 
+near_linhadetras: 
+nearmineroduto_FID: 
+near_mineroduto: 
+nearmines_FID: 
+near_mines: 
+nearoleoduto_FID: 
+near_oleoduto: 
+nearpeqcentralhidr_FID: 
+near_peqcentralhidr: 
+nearpgs_FID: 
+near_pgs: 
+nearpoliduto_FID: 
+near_poliduto: 
+nearpontosentregas_FID: 
+near_pontosentregas: 
+nearrefinariaspetroleo_FID: 
+near_refinariaspetroleo: 
+nearroads_FID: 
+near_roads: 
+nearsubestacao_FID: 
+near_subestacao: 
+nearterminalpetro_FID: 
+near_terminalpetro: 
+neartermofossi_FID: 
+near_termofossi: 
+neartermonuclea_FID: 
+near_termonuclea: 
+nearusinabiodisel_FID: 
+near_usinabiodisel: 
+nearusinabiogas_FID: 
+near_usinabiogas: 
+nearusinabiomassa_FID: 
+near_usinabiomassa: 
+nearusinaeolica_FID: 
+near_usinaeolica: 
+nearusinaetanol_FID: 
+near_usinaetanol: 
+nearusinahidre_FID: 
+near_usinahidre: 
+nearusinasolar_FID: 
+near_usinasolar: 
+nearline_FID: 
+near_line: 
+gid: 
+terrai_cod: 
+terrai_nom: 
+etnia_nome: 
+municipio_: 
+uf_sigla: 
+superficie: 
+fase_ti: 
+modalidade: 
+reestudo_t: 
+cr: 
+faixa_fron: 
+undadm_cod: 
+undadm_nom: 
+undadm_sig: 
+OBJECTID: 
+NAME: 
+TOTPOP_CY: 
+Shape__Are: 
+Shape__Len: 
+treatment: 
+Legal_Situation: 
+Date: 
+Agents.: 
+Indigenous_Org.: 
+IndigOrg_Acro: 
+Project.: 
+Proj_org: 
+Proj_yr: 
+Proj_subj: 
+Threat.: 
+Risk_cat: 
+Risk_type: 
+Intervention: 
+Population: 
+n_empresas_ADMIN PUBLICA: 
+n_empresas_AGRICULTURA: 
+n_empresas_ALIMENTOS E BEBIDAS: 
+n_empresas_ALOJAMENTO E ALIMENTACAO: 
+n_empresas_ALUGUEL EQUIPAMENTO: 
+n_empresas_ATACADO: 
+n_empresas_ATIVIDADES ASSOCIATIVAS: 
+n_empresas_AUTOMOVEIS E TRANSPORTE: 
+n_empresas_AUX FINANCIERO: 
+n_empresas_COMERCIO REP VEICULOS: 
+n_empresas_CONSTRUCAO: 
+n_empresas_CORREIO E TELECOM: 
+n_empresas_CULTURA E ESPORTE: 
+n_empresas_EDICAO E IMPRESSAO: 
+n_empresas_EDUCACAO: 
+n_empresas_ELETRICIDADE E GAS: 
+n_empresas_FINANCAS: 
+n_empresas_LIMPEZA E ESGOTO: 
+n_empresas_MAQUINARIA: 
+n_empresas_METALURGIA BASICA: 
+n_empresas_MINEIRACAO: 
+n_empresas_PROD MADERA: 
+n_empresas_PROD MINERAIS NAO METALICOS: 
+n_empresas_SAUDE: 
+n_empresas_SERVICOS A EMPRESAS: 
+n_empresas_SERVICOS PESSOAIS: 
+n_empresas_TRANSPORTE OUTROS: 
+n_empresas_TRANSPORTE TERRESTRE: 
+n_empresas_TRATAMENTO E DISTRIBUCAO AGUA: 
+n_empresas_VAREJO: 
+n_empresas_INFORMATICA: 
+n_empresas_SEGUROS E PREVIDENCIA: 
+n_empresas_PROD METALICOS: 
+n_empresas_SERVICOS DOMESTICOS: 
+n_empresas_SILVICULTURA E FLORESTAL: 
+n_empresas_VESTUARIO: 
+n_empresas_CELULOSE E PAPEL: 
+n_empresas_ORGANISMOS INTERNACIONAIS: 
+n_empresas_PETROLEO E GAS: 
+n_empresas_PESCA E AQUICULTURA: 
+n_empresas_QUIMICOS: 
+n_empresas_TRANSPORTE AQUAVIARIO: 
+n_empresas_IMOBILIARIA: 
+n_empresas_RECICLAGEM: 
+n_empresas_COUROS E CALCADO: 
+n_empresas_BORRACHA E PLASTICO: 
+n_empresas_TEXTEIS: 
+n_empresas_PESQUISA E DESENVOLVIMENTO: 
+n_empresas_TRANSPORTE AEREO: 
+n_empresas_FUMO: 
+n_empresas_REFINO PETROLEO: 
+n_empresas_: 
+n_empregos_ADMIN PUBLICA: 
+n_empregos_AGRICULTURA: 
+n_empregos_ALIMENTOS E BEBIDAS: 
+n_empregos_ALOJAMENTO E ALIMENTACAO: 
+n_empregos_ALUGUEL EQUIPAMENTO: 
+n_empregos_ATACADO: 
+n_empregos_ATIVIDADES ASSOCIATIVAS: 
+n_empregos_AUTOMOVEIS E TRANSPORTE: 
+n_empregos_AUX FINANCIERO: 
+n_empregos_COMERCIO REP VEICULOS: 
+n_empregos_CONSTRUCAO: 
+n_empregos_CORREIO E TELECOM: 
+n_empregos_CULTURA E ESPORTE: 
+n_empregos_EDICAO E IMPRESSAO: 
+n_empregos_EDUCACAO: 
+n_empregos_ELETRICIDADE E GAS: 
+n_empregos_FINANCAS: 
+n_empregos_LIMPEZA E ESGOTO: 
+n_empregos_MAQUINARIA: 
+n_empregos_METALURGIA BASICA: 
+n_empregos_MINEIRACAO: 
+n_empregos_PROD MADERA: 
+n_empregos_PROD MINERAIS NAO METALICOS: 
+n_empregos_SAUDE: 
+n_empregos_SERVICOS A EMPRESAS: 
+n_empregos_SERVICOS PESSOAIS: 
+n_empregos_TRANSPORTE OUTROS: 
+n_empregos_TRANSPORTE TERRESTRE: 
+n_empregos_TRATAMENTO E DISTRIBUCAO AGUA: 
+n_empregos_VAREJO: 
+n_empregos_INFORMATICA: 
+n_empregos_SEGUROS E PREVIDENCIA: 
+n_empregos_PROD METALICOS: 
+n_empregos_SERVICOS DOMESTICOS: 
+n_empregos_SILVICULTURA E FLORESTAL: 
+n_empregos_VESTUARIO: 
+n_empregos_CELULOSE E PAPEL: 
+n_empregos_ORGANISMOS INTERNACIONAIS: 
+n_empregos_PETROLEO E GAS: 
+n_empregos_PESCA E AQUICULTURA: 
+n_empregos_QUIMICOS: 
+n_empregos_TRANSPORTE AQUAVIARIO: 
+n_empregos_IMOBILIARIA: 
+n_empregos_RECICLAGEM: 
+n_empregos_COUROS E CALCADO: 
+n_empregos_BORRACHA E PLASTICO: 
+n_empregos_TEXTEIS: 
+n_empregos_PESQUISA E DESENVOLVIMENTO: 
+n_empregos_TRANSPORTE AEREO: 
+n_empregos_FUMO: 
+n_empregos_REFINO PETROLEO: 
+n_empregos_: 
+PIB: 
+populacao: 
+pib_pc: 
+cd_ibge_6.x: 
+rev_total.x: 
+rev_curr.x: 
+rev_trib.x: 
+rev_tax.x: 
+rev_fee.x: 
+rev_tr_curr.x: 
+rev_tr_fed.x: 
+rev_tr_stt.x: 
+rev_tr_oth.x: 
+rev_tr_mun.x: 
+rev_tr_mult.x: 
+rev_tr_curr_oth.x: 
+rev_curr_oth.x: 
+rev_agr.x: 
+rev_cap.x: 
+exp_total.x: 
+exp_cap.x: 
+exp_leg.x: 
+exp_jud.x: 
+exp_agr.x: 
+exp_ed_cult.x: 
+exp_hab.x: 
+exp_ind.x: 
+exp_heal_san.x: 
+exp_assist.x: 
+exp_transp.x: 
+exp_secur.x: 
+exp_energy.x: 
+exp_admin.x: 
+id.x: 
+id2.x: 
+cd_ibge_6.y: 
+rev_total.y: 
+rev_curr.y: 
+rev_trib.y: 
+rev_tax.y: 
+rev_fee.y: 
+rev_tr_curr.y: 
+rev_tr_fed.y: 
+rev_tr_stt.y: 
+rev_tr_oth.y: 
+rev_tr_mun.y: 
+rev_tr_mult.y: 
+rev_tr_curr_oth.y: 
+rev_curr_oth.y: 
+rev_agr.y: 
+rev_cap.y: 
+exp_total.y: 
+exp_cap.y: 
+exp_leg.y: 
+exp_jud.y: 
+exp_agr.y: 
+exp_ed_cult.y: 
+exp_hab.y: 
+exp_ind.y: 
+exp_heal_san.y: 
+exp_assist.y: 
+exp_transp.y: 
+exp_secur.y: 
+exp_energy.y: 
+exp_admin.y: 
+id.y: 
+id2.y: 
+municipio_ibge: 
+cd_tse: 
+uf.x: 
+el_turno: 
+el_candidato: 
+el_cargo: 
+el_situacao: 
+el_partido: 
+el_votos: 
+el_votos_p: 
+el_ocupacao: 
+el_idade: 
+el_titulo: 
+el_sexo: 
+el_instrucao: 
+el_estado_civil: 
+el_seq_candidato: 
+el_num_candidato: 
+el_eleito: 
+el_incumb: 
+el_mand: 
+el_tent: 
+el_novo: 
+el_tipo: 
+el_coligacao: 
+el_votos_c: 
+el_coef: 
+el_coef_c: 
+el_eleitos_c: 
+el_eleitos_c_media: 
+el_aptos: 
+el_comparecimentos: 
+el_B_A: 
+el_abstencoes: 
+el_C_A: 
+el_votos_validos: 
+el_D_B: 
+el_votos_brancos: 
+el_E_B: 
+el_votos_nulos: 
+el_F_B: 
+el_votos_nulos_apurados: 
+el_G_B: 
+id: 
+vab_agro: 
+vab_ind: 
+vab_ser: 
+apu: 
+impostos: 
+pib: 
+vab_servicio: 
+id_municipio_tse: 
+id_municipio_rf: 
+id_municipio_bcb: 
+municipio: 
+capital_uf: 
+id_comarca: 
+id_regiao_saude: 
+regiao_saude: 
+id_regiao_imediata: 
+regiao_imediata: 
+id_regiao_intermediaria: 
+regiao_intermediaria: 
+id_microrregiao: 
+microrregiao: 
+id_mesorregiao: 
+mesorregiao: 
+id_uf: 
+sigla_uf: 
+uf.y: 
+regiao: 
+existia_1991: 
+existia_2000: 
+existia_2010: 
+cen_dom2000: 
+cen_urban2000: 
+cen_water_main_network2000: 
+cen_sewage_main_network2000: 
+cen_sewage_tank2000: 
+cen_electricity2000: 
+cen_sanitary2000: 
+cen_TV2000: 
+cen_radio2000: 
+cen_oven2000: 
+cen_fridge2000: 
+cen_automobile2000: 
+cen_phone2000: 
+cen_pop2000: 
+cen_relig_none2000: 
+cen_relig_catholic2000: 
+cen_relig_evangelical2000: 
+cen_relig_spiritist2000: 
+cen_relig_other2000: 
+cen_born_in_munic2000: 
+cen_literacy2000: 
+cen_race_white2000: 
+cen_race_black2000: 
+cen_race_yellow2000: 
+cen_race_brown2000: 
+cen_years_educ2000: 
+cen_income2000: 
+cen_dom2010: 
+cen_urban2010: 
+cen_water_main_network2010: 
+cen_sewage_main_network2010: 
+cen_sewage_tank2010: 
+cen_electricity2010: 
+cen_sanitary2010: 
+cen_TV2010: 
+cen_radio2010: 
+cen_oven2010: 
+cen_fridge2010: 
+cen_automobile2010: 
+cen_phone2010: 
+cen_pop2010: 
+cen_relig_none2010: 
+cen_relig_catholic2010: 
+cen_relig_evangelical2010: 
+cen_relig_spiritist2010: 
+cen_relig_other2010: 
+cen_born_in_munic2010: 
+cen_literacy2010: 
+cen_race_white2010: 
+cen_race_black2010: 
+cen_race_yellow2010: 
+cen_race_brown2010: 
+cen_years_educ2010: 
+cen_income2010: 
+cen_dom: 
+cen_urban: 
+cen_water_main_network: 
+cen_sewage_main_network: 
+cen_sewage_tank: 
+cen_electricity: 
+cen_sanitary: 
+cen_TV: 
+cen_radio: 
+cen_oven: 
+cen_fridge: 
+cen_automobile: 
+cen_phone: 
+cen_pop: 
+cen_relig_none: 
+cen_relig_catholic: 
+cen_relig_evangelical: 
+cen_relig_spiritist: 
+cen_relig_other: 
+cen_born_in_munic: 
+cen_literacy: 
+cen_race_white: 
+cen_race_black: 
+cen_race_yellow: 
+cen_race_brown: 
+cen_years_educ: 
+cen_income: 

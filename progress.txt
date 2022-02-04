@@ -7,3 +7,5 @@
 1/31: looking at variables and list sent by Kathryn of what to start with, spent time looking through some geospatial projects online to see how they work with this type of data and what types of things I should look for in my analysis 
 
 2/1: continued to look at geospatial data, a lot of the past projects of this sort use shape file data which is different than the format of the frame I'm working with so I spent time today thinking about how would be best to do my initial visualizations to get to know the data
+
+2/2-2/4: created some visualizations of variables that Kathryn mentioned as being important, looked at surface plots, histograms for each category

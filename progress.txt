@@ -1,11 +1,12 @@
-1/24: created repo, added csv data from Box, realized that the csvs don't seem to be very substantial so will next work on .rdata files
+1/23-1/29: 
+- created repo, added csv data from Box, realized that the csvs don't seem to be very substantial so will next work on .rdata files
+- worked on getting data into notebook, took a long time to figure out how to get .rdata file into python, ended up having to open with R studio and run code to output csv. created text file of each var name, might be good to have this dictionary esp w focus on interpretability, emailed Kathryn about where to start with data analysis since there are many .rdata files
+- continued to work with data, looked through analysis data in r and outputted to csv to be compatible with python, still haven't figured out reading .rdata directly into python but was able to convert entire frame to csv 
 
-1/25: worked on getting data into notebook, took a long time to figure out how to get .rdata file into python, ended up having to open with R studio and run code to output csv. created text file of each var name, might be good to have this dictionary esp w focus on interpretability, emailed Kathryn about where to start with data analysis since there are many .rdata files
+1/30-2/5: 
+- looking at variables and list sent by Kathryn of what to start with, spent time looking through some geospatial projects online to see how they work with this type of data and what types of things I should look for in my analysis 
+- continued to look at geospatial data, a lot of the past projects of this sort use shape file data which is different than the format of the frame I'm working with so I spent time today thinking about how would be best to do my initial visualizations to get to know the data
+- created some visualizations of variables that Kathryn mentioned as being important, looked at surface plots, histograms for each category
 
-1/29: continued to work with data, looked through analysis data in r and outputted to csv to be compatible with python, still haven't figured out reading .rdata directly into python but was able to convert entire frame to csv 
-
-1/31: looking at variables and list sent by Kathryn of what to start with, spent time looking through some geospatial projects online to see how they work with this type of data and what types of things I should look for in my analysis 
-
-2/1: continued to look at geospatial data, a lot of the past projects of this sort use shape file data which is different than the format of the frame I'm working with so I spent time today thinking about how would be best to do my initial visualizations to get to know the data
-
-2/2-2/4: created some visualizations of variables that Kathryn mentioned as being important, looked at surface plots, histograms for each category
+2/5-2/12: 
+- learning Google Earth Engine

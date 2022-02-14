@@ -9,4 +9,8 @@
 - created some visualizations of variables that Kathryn mentioned as being important, looked at surface plots, histograms for each category
 
 2/5-2/12: 
-- learning Google Earth Engine
+- learning Google Earth Engine, working on understanding data with Kathryn, seems like my initial data was truncating somewhere in the process of transferring from R to Python so looked into this as well
+
+2/13-2/20:
+- got entire data set to read in correctly, starting to explore working with decision tree to predict nn loss
+- looking into machine learning that considers covariates

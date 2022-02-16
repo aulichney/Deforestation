@@ -1,0 +1,3 @@
+Meeting Notes
+
+2/16: Kathryn will update data set to add local election data, e.g. expenditures, local police force etc. and Annie will merge this on the current dataset, Annie will also continue to work on modeling the corruption paper  

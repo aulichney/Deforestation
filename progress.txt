@@ -15,7 +15,11 @@
 - got entire data set to read in correctly, starting to explore working with decision tree to predict nn loss
 - looking into machine learning that considers covariates
 
-2/21-2/28:
+2/21-2/27:
 - working on setting up a random forest for the data that I have that mimics the corruption paper
 - considering analagous metrics for regression (corruption paper uses classification metrics) 
 - looking at potential variable groupings for data I have so far
+
+2/28-3/6:
+- looking into variable importance and metrics to evaluate cross validation
+- implementing gradient boosting in same framework as random forests

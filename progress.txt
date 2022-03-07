@@ -23,3 +23,6 @@
 2/28-3/6:
 - looking into variable importance and metrics to evaluate cross validation
 - implementing gradient boosting in same framework as random forests
+
+3/7-3/14:
+- researching and implementing neural networks 

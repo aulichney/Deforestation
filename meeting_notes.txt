@@ -1,3 +1,5 @@
 Meeting Notes
 
-2/16: Kathryn will update data set to add local election data, e.g. expenditures, local police force etc. and Annie will merge this on the current dataset, Annie will also continue to work on modeling the corruption paper  
+2/16: Kathryn will update data set to add local election data, e.g. expenditures, local police force etc. and Annie will merge this on the current dataset, Annie will also continue to work on modeling the corruption paper 
+
+2/28: discussing train/test location issue and high initial explained variance, Annie will try cross fitting and municipality level test-train splits, Kathryn will get dataset of additional variables for merge

@@ -1,0 +1,13 @@
+New 1 km Resolution Datasets of Global and Regional Risks of Tree Cover Loss, Hewson et al
+
+- used spatially-explicit globally-consistent variables and global historical tree cover and loss to analyze how global- and regional-scale variables contributed to historical tree cover loss and to model future risks of tree cover loss, based on a business-as-usual scenario
+- aim to help donors better spend with forest conservation efforts
+- look at how regions differ, our data does not consider this really, only economic variables are global 
+- use multi-layer perceptron neural network
+- For both the global and regional scales of the analysis, we assessed the relationship between each of the 25 variables and the historical change (areas of tree cover loss between 2000 and 2014) and persistence (areas that remain under tree cover in 2014). We then selected the subset of variables that produced the highest model accuracy at each scale
+- We tested the quantitative and qualitative variables, for both the global and regional analyses, against each other using regression and principal component analysis (PCA) to identify spatial autocorrelation, and assess explanatory power in predicting tree cover loss
+- use spatial autocorrelation tests to eliminate some variables 
+- uses MLP neural net method
+- We selected the MLP because the MLP algorithm is less sensitive than other methods (such as logistical regression) to collinearity among independent variables and non-normal distributions 
+- MLP seems particularly good for non-normal variables and potential covariates
+- At the global scale, precipitation, mean temperature, and crop suitability were the most important variables

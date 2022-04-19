@@ -24,5 +24,29 @@
 - looking into variable importance and metrics to evaluate cross validation
 - implementing gradient boosting in same framework as random forests
 
-3/7-3/14:
+3/7-3/13:
 - researching and implementing neural networks 
+
+3/14-3/20:
+- fixing gradient boosting and cross validation functions
+
+3/21-3/27:
+- looking for source of information leakage
+- test train split by municipality
+
+3/28-4/3:
+- looking for source of information leakage
+- new way of test train split by municipality that addresses the variance in mun population
+
+
+4/4-4/10:
+- merging new data
+- researching normalization and importance
+- check of test train split by municipality visually
+
+4/11-4/17
+- merging new data
+- researching MLP
+- researching covariate tests pre modeling
+
+4/18-4/24

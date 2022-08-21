@@ -75,7 +75,56 @@
 -continued to research incremental PCA and worked on implementing PCA on small subset
 
 6/4-6/10
--
+- figuring out cross-validation parameters, understanding all options and how each may or may not be relevant to this data
 
 6/11-6/17
--
+- working on PIB data, worked with Kathryn to fix gaps in this data
+- also missing emissions data from 2016, worked with Kathryn on this
+
+6/18-6/24
+- discovered municipalities that split as source of NAs in dataset with mun-level variables
+- looking into these splits online to try to find some sort of list of all the changes, couldn't find this
+
+6/25-7/1
+- fixed emissions gaps, fixed audit NAs, calculations on emissions data
+- discussed elections level data goals with Kathryn
+
+7/2-7/8
+- worked on starting elections calculations
+- also discussed project with Dr. Michael Ross at UCLA which was illuminating
+
+7/9-7/15
+- more elections calculations and working on cross-validation pipelines for each method
+
+7/16-7/22
+- more elections data work, found that some candidates ran and held office in multiple municipalities which was source of error on some calculations  
+
+7/23-7/29
+- ran into difficulty after finding that some candidates ran again after term limit up, investigated this to see if it was actually what happened or an error in the way I calculated term limit and incumbent variables, turns out this actually happened
+- discussed this with Kathryn too
+
+7/30-8/5
+- finished up elections variables after clarifying term limit and incumbent confusion with Kathryn 
+
+8/6-8/12
+- continued to look into interpretation of neural network results
+
+8/13-8/19
+- tried implementing several approaches to interpretable neural networks, after this will almost have all methods of variable importance complete
+
+8/20-8/26
+In progress/toDo: 
+- merge election data back into main data
+- complete neural network interpretation
+
+
+- after these things check in with Luke and Kathryn
+8/26-9/2
+
+9/3-9/9
+
+9/10-9/17
+
+
+
+

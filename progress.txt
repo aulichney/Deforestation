@@ -111,19 +111,37 @@
 
 8/13-8/19
 - tried implementing several approaches to interpretable neural networks, after this will almost have all methods of variable importance complete
+- the interpretability of neural networks seems to be non trivial and evolving. the corruption paper doesn't elucidate their method of interpretation in a way that is entirely clear to me at this point
+- discuss with Luke and Kathryn
 
 8/20-8/26
+- Met with Kathryn and discussed runoff variable, realize change of approach is in order given presence of runoffs
+
+8/26-9/2
+- changed election data processing approach to account for runoffs (CandPrefeitoDataProcessingNew.ipynb)
+
+9/3-9/9
+- translating to English and sorting jobs, check with Kathryn about decisions at this stage
+- found potential gap in data in a few years with runoff, ask Kathryn about this too
+
+9/10-9/17
+- continued reading up on spatiotemporal dependence options (reading R code from Oliviera paper)
+- working on election data and sorting jobs in the meantime
+
+9/18-9/24
+- election data work, waiting to hear back from Kathryn to finalize some decisions
+
+
+
 In progress/toDo: 
+- check with Kathryn about decisions on election data
+- figure out neural network interpretability 
+- add NMF after talking to Luke
 - merge election data back into main data
+- summarize NAs and deal with split munis
 - complete neural network interpretation
 
 
-- after these things check in with Luke and Kathryn
-8/26-9/2
-
-9/3-9/9
-
-9/10-9/17
 
 
 

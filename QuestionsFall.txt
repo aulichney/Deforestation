@@ -1,0 +1,27 @@
+Questions
+
+For Luke: 
+- advice for interpreting neural networks: It’s not very clear to me at this point how they interpreted variable importance. I’ve looked into it and could mirror another work that more specifically outlines their processes, but want to check in about this before implementing— cautious about adopting anything that is overly-complicated at this point in the process
+- check in about spatiotemporal dependency approach, again cautious of over complicating before data work done
+- adding Non Negative Matrix Factorization— method that I learned this summer that seems highly relevant (interpretable, time series option)
+
+For Kathryn: 
+- check in about first variable and English translation 
+- check in about job sorting categories 
+- missing data for the munis I identify in the notebook, no second term? 
+
+
+Parts working on 
+1. Data Processing: 
+	- creating municipal level election dataset (create incumbent variable, merge demographic info, sort the many jobs into categories etc.) 
+		- most recent version is CandPrefeitoDataProcessingNew.ipynb
+	- merging data in Box into one large data frame, looking for patterns of null values (missing years/munis, creation of new munis)
+
+2. ML Frameworks for when data is done
+ 	- have all but neural networks in a form that is ready to run full data on once it’s ready (parallel corruption paper, clear method to interpret features)
+	- so far running on just one year dropping vars that have been problematic NA-wise (talk with Luke once again about how time will come in)
+	- substitution of NMF for PCA
+
+3. Reading up on relevant work
+	- spatiotemporal dependence of data (looking at R code from Oliviera paper)
+	- interpretation of neural networks

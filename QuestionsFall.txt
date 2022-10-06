@@ -25,3 +25,11 @@ Parts working on
 3. Reading up on relevant work
 	- spatiotemporal dependence of data (looking at R code from Oliviera paper)
 	- interpretation of neural networks
+    
+    
+    
+Kathryn Meeting 10.6:
+- ask about the other types of elections that are messing up the elections data results
+- ask about the many entries that have no winner 
+- ask about the turno 2 being in the result column but not in the turno col. 
+- 3301009 in 2004 no turno 1 info

@@ -1,0 +1,7 @@
+Data Processing Remaining Issues
+
+1. missing a bunch of 2020, 2016, 1996 id_candidatos in the election data. cannot find name to id_candidato_bd information online
+
+2. missing the following municipality/year combinations in the bigger dataframe of all variables
+
+    a. 

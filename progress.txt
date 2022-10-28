@@ -131,6 +131,26 @@
 9/18-9/24
 - election data work, waiting to hear back from Kathryn to finalize some decisions
 
+9/25-10/1
+- working on turno issues with election data and figuring out where missing data is
+
+10/2-10/8
+- looking into different types of elections and figuring out which to use where
+- reading through spatiotemporal cross validation R code
+
+10/9-10/15
+- reading up on spatiotemporal dependence to figure out R code
+- election job cleaning and categorization
+
+10/16-10/22
+- election data supplementary elections analysis
+- trying to merge in 2016 data, searching for name/codigo information (can't find!)
+
+10/23-10/30
+- cleaning bigger data frame, writing up summary of NAs that remain after my investigation for Kathryn
+- more spatiotemporal cv R code into python work
+
+10/31-
 
 
 In progress/toDo: 

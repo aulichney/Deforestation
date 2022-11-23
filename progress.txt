@@ -150,15 +150,31 @@
 - cleaning bigger data frame, writing up summary of NAs that remain after my investigation for Kathryn
 - more spatiotemporal cv R code into python work
 
-10/31-
+10/31-11/5
+- checking ML code with the current data to make sure it handles new data and get a sense of runtime for when data fully done (soon!)
+
+11/6-11/12
+- inventory of all nas that remain the large dataset since last I checked
+- looking into municpality changes to see if these are the cause of the nulls
+
+11/13-11/19
+- investigating nulls in election data for 1996, 2016, 2020
+- exploration of name-level merges from other data sources of winners for 1996 to get incumbants
+
+11/20-11/26
+- implementing changes to the election data for the 2016/20
+- substituting use of deforest R file with the individual-level 
+- investigating use of spatial merge to handle municipality structure changes
 
 
 In progress/toDo: 
-- check with Kathryn about decisions on election data
+- finish election changes
+- individual datasets replace the Rdata file with gaps
+- another inventory of NAs after those changes!
+
 - figure out neural network interpretability 
 - add NMF after talking to Luke
 - merge election data back into main data
-- summarize NAs and deal with split munis
 - complete neural network interpretation
 
 

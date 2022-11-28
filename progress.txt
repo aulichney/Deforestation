@@ -166,6 +166,8 @@
 - substituting use of deforest R file with the individual-level 
 - investigating use of spatial merge to handle municipality structure changes
 
+11/27-
+- fixing emissions 
 
 In progress/toDo: 
 - finish election changes

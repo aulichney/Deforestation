@@ -1,7 +1,43 @@
 Data Processing Remaining Issues
 
-1. missing a bunch of 2020, 2016, 1996 id_candidatos in the election data. cannot find name to id_candidato_bd information online
+I. missing a bunch of 2020, 2016, 1996 id_candidatos in the election data. cannot find name to id_candidato_bd information online. 
 
-2. missing the following municipality/year combinations in the bigger dataframe of all variables
+II. missing the following municipality/year combinations in the bigger dataframe of all variables
 
-    a. 
+    1. year_deforest.Rdata does not contain any data on municipality 1504752, Mojuí Dos Campos. 
+    This muni was emancipated from another in 2006, and they didn't have their own election until 2012. 
+    The missing data for this muni is in the years 2013, 2014, 2015, 2016. 
+    There are 670 missing data points.
+
+    2. year_deforest.Rdata also does not contain data on municipality 2103307, Codo. 
+    I can't find any historical information as to why this might be the case.
+    There are 480 missing data points.
+
+    3. year_deforest.Rdata does not contain any data on municipality 2111748, Senador Alexandre Costa.
+    Also can't find much info here.
+    There are 45 missing data points.
+
+    4. year_deforest.Rdata does not contain any data on municipality 2102374, Cachoeira Grande.
+    Created 1992.
+    There are 15 missing data points.
+
+    5. year_deforest.Rdata does not contain any data on municipality 2211209, URUÇUÍ.
+    No info found about year of establishment.
+    There are 15 missing data points.
+
+    6. year_deforest.Rdata does not contain any data on municipality 2109304, Presidente Vargas.
+    Created 1992.
+    There are 15 missing data points.
+
+    7. year_deforest.Rdata does not contain any data on municipality 2911105, Formosa Do Rio Preto.
+    Created 2002.
+    There are 15 missing data points.
+
+    8. year_deforest.Rdata does not contain any data on municipality  2928901, São Desidério.
+    No info found about year of establishment.
+    There are 15 missing data points.
+
+    9. year_deforest.Rdata does not contain any data on municipality 5204904, Campos Belos. 
+    Definitely not a newly-formed municipality.
+    There are 15 missing data points.
+

@@ -1,0 +1,5 @@
+QUESTIONS Feb 14 2023
+
+1. what data am I taking from /Users/annieulichney/Library/CloudStorage/Box-Box/Deforestation_MachineLearning/Data/legal_amazon_muncipalities_panel2001to2019.dta
+
+2. 

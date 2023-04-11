@@ -1,0 +1,84 @@
+agriculture_jobs =  ['agricultor', 'agronomo','pecuarista','operador de implemento de agricultura pecuaria e exploracao florestal',
+                    'produtor agropecuario', 'trabalhador florestal', 'trabalhador rural', 'tecnico em agronomia e agrimensura', 'pescador']
+
+public_service_jobs = ['aposentado (exceto servidor publico)', 'agenciador de propaganda','cientista politico',
+                        'diplomata','deputado','magistrado','membro das forcas armadas', 'membro do ministerio publico',
+                        'militar reformado', 'ministro do poder judiciario e magistrado','policial civil', 'policial militar', 'prefeito',
+                        'presidente da republica ministro de estado governador e prefeito', 'senador', 'senador deputado e vereador',
+                        'servidor publico civil aposentado', 'servidor publico estadual',
+                        'servidor publico federal', 'servidor publico municipal', 'serventuario de justica',
+                        'vereador', 'assistente social', ]
+
+health_jobs = ['biologo','biologo e biomedico', 'biomedico','enfermeiro','farmaceutico',
+            'medico','operador de equipamento medico e odontologico','nutricionista e assemelhados','psicologo','protetico',
+            'tecnico de enfermagem e assemelhados (exceto enfermeiro)', 'veterinario',]
+
+corporate_jobs = ['administrador', 'bancario e economiario', 'contador', 'economista', 'empresario','fiscal',
+                    'diretor de empresas',]
+
+law_jobs = ['advogado']
+
+technical_jobs = ['engenheiro', 'estatistico', 'geologo','matematico e atuario', 
+                    'operador de computador','programador de computador', 'analista de sistemas', 'estatistico',]
+
+industrial_jobs = ['industrial','petroleiro','operador de instalacao de producao de energia eletrica e nuclear', 
+                    'tecnico de mecanica', 'tecnico de mineracao metalurgia e geologia','torneiro mecanico',
+                    'trabalhador de construcao civil', 'tecnico de obras civis estradas saneamento e trabalhador assemelhado',
+                    'trabalhador de fabricacao de papel e papelao', 'carvoeiro', 'tecnico contabilidade estatistica economia domestica e administracao',
+                    'trabalhador de fabricacao de artefatos de madeira', 'trabalhador metalurgico e siderurgico']
+                    
+
+unsorted_jobs = [    'agente administrativo', 'agente de saude e sanitarista',
+                  'agente de viagem', 'agente postal', 
+                  'alfaiate e costureiro', 'almoxarife',
+                  'arquiteto', 'artesao',
+                  'ator e diretor de espetaculos publicos',
+                  'auxiliar de escritorio e assemelhados', 'auxiliar de laboratorio','bibliotecario',
+                  'bibliotecario arquivista museologo e arqueologo', 
+                  'bombeiro e instalador de gas agua esgoto e assemelhados', 'cabeleireiro e barbeiro',
+                  'carpinteiro marceneiro e assemelhados', 
+                  'ceramista e oleiro', 'bombeiro militar',
+                  'comandante de embarcacoes', 'comerciante', 'comerciario',
+                  'comunicologo', 
+                  'corretor de imoveis seguros titulos e valores', 'decorador',
+                  'desenhista', 'despachante', 'digitador', 
+                  'diretor de estabelecimento de ensino',
+                  'dona de casa',  'eletricista e assemelhados',
+                  'empresario e produtor de espetaculos publicos',
+                  'escritor e critico',
+                  'escultor e pintor',  
+                  'estudante bolsista estagiario e assemelhados',
+                  'estudantebolsista estagiario e assemelhados', 
+                  'fisioterapeuta e terapeuta ocupacional','fonoaudiologo', 'fotografo e assemelhados', 'frentista',
+                  'funileiro', 'garimpeiro',   'gerente',
+                  'historiador', 'joalheiro e ourives',
+                  'jornalista e redator', 'lavador de veiculos',
+                  'leiloeiro avaliador e assemelhados',
+                  'locutor e comentarista de radio e televisao e radialista',
+                  'manicure e maquilador', 'marinheiro civil canoeiro embarcado e assemelhados','mecanico de manutencao', 
+                  'motorista de veiculos de transporte coletivo de passageiros',
+                  'motorista de veiculos de transporte de carga',
+                  'motorista particular', 'musico', 'nao divulgavel',
+                  'nao informada', 
+                  'ocupante de cargo em comissao', 'odontologo',
+                  'outros', 'padeiro confeiteiro e assemelhados',
+                  'padeiro confeiteiro e trabalhador assemelhado', 
+                  'pedagogo',  'piloto de aviacao comercial navegador mecanico de voo e assemelhados',
+                  'professor de ensino de primeiro e segundo graus',
+                  'professor de ensino fundamental', 'professor de ensino medio',
+                  'professor de ensino superior',
+                  'professor e instrutor de formacao profissional',
+                  'publicitario', 'quimico', 'relacoes-publicas','representante comercial', 'sacerdote ou membro de ordem ou seita religiosa',
+                  'secretario e datilografo',  'secretarioestenografodatilograforecepcionistatelefonistataquigraf',
+                  'securitario', 'serralheiro', 
+                  'sociologo', 'supervisor inspetor e agente de compras e vendas',
+                  'tabeliao', 'taxista', 'taxista e motorista particular',
+                  'tecnico de eletricidade eletronica e telecomunicacoes',
+                  'tecnico de laboratorio e raios x', 'tecnico de obras civis estradas saneamento e assemelhados',
+                  'tecnico de quimica', 
+                  'tecnico em edificacoes', 'tecnico em informatica',
+                  'tecnico textil', 'terapeuta', 
+                  'trabalhador de artes graficas', 
+                  'trabalhador dos servicos de contabilidade de caixa e assemelhados',
+                  'trabalhador rural', 'vendedor de comercio varejista e atacadista',
+                  'vendedor pracista representante caixeiro-viajante e assemelhados','vigilante', 'zootecnista']

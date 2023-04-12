@@ -1,3 +1,86 @@
+
+agriculture_jobs =  ['agricultor', 'agronomo','pecuarista','operador de implemento de agricultura pecuaria e exploracao florestal',
+                    'produtor agropecuario', 'trabalhador florestal', 'trabalhador rural', 'tecnico em agronomia e agrimensura', 'pescador']
+
+public_service_jobs = ['aposentado (exceto servidor publico)', 'agenciador de propaganda','cientista politico',
+                        'diplomata','deputado','magistrado','membro das forcas armadas', 'membro do ministerio publico',
+                        'militar reformado', 'ministro do poder judiciario e magistrado','policial civil', 'policial militar', 'prefeito',
+                        'presidente da republica ministro de estado governador e prefeito', 'senador', 'senador deputado e vereador',
+                        'servidor publico civil aposentado', 'servidor publico estadual',
+                        'servidor publico federal', 'servidor publico municipal', 'serventuario de justica',
+                        'vereador', 'assistente social', 'bombeiro militar']
+
+health_jobs = ['biologo','biologo e biomedico', 'biomedico','enfermeiro','farmaceutico',
+            'medico','operador de equipamento medico e odontologico','nutricionista e assemelhados','psicologo','protetico',
+            'tecnico de enfermagem e assemelhados (exceto enfermeiro)', 'veterinario', 'agente de saude e sanitarista']
+
+corporate_jobs = ['administrador', 'bancario e economiario', 'contador', 'economista', 'empresario','fiscal',
+                    'diretor de empresas',]
+
+law_jobs = ['advogado']
+
+technical_jobs = ['engenheiro', 'estatistico', 'geologo','matematico e atuario', 
+                    'operador de computador','programador de computador', 'analista de sistemas', 'estatistico',]
+
+industrial_jobs = ['industrial','operador de instalacao de producao de energia eletrica e nuclear', 
+                    'tecnico de mecanica', 'torneiro mecanico',
+                    'trabalhador de construcao civil', 'tecnico de obras civis estradas saneamento e trabalhador assemelhado',
+                    'trabalhador de fabricacao de papel e papelao', 'tecnico contabilidade estatistica economia domestica e administracao',
+                    'trabalhador de fabricacao de artefatos de madeira', 'trabalhador metalurgico e siderurgico']
+
+professional_jobs = ['bibliotecario', 'bibliotecario arquivista museologo e arqueologo', 'diretor de estabelecimento de ensino', 
+                    'fonoaudiologo', 'historiador', 'odontologo', 'pedagogo', 'professor de ensino de primeiro e segundo graus', 
+                    'professor de ensino fundamental', 'professor de ensino medio', 'professor de ensino superior', 
+                    'professor e instrutor de formacao profissional', 'publicitario', 'quimico', 'relacoes-publicas', 'sociologo', 
+                    'tecnico de laboratorio e raios x', 'tecnico de obras civis estradas saneamento e assemelhados', 
+                    'tecnico de eletricidade eletronica e telecomunicacoes', 'tecnico de quimica', 'tecnico em edificacoes', 
+                    'tecnico em informatica', 'tecnico textil', 'terapeuta']
+
+mining_jobs = ['garimpeiro', 'tecnico de mineracao metalurgia e geologia', 'petroleiro', 'carvoeiro']
+
+#############################################################################################################################################
+agriculture_jobs =  ['agricultor', 'agronomo','pecuarista','operador de implemento de agricultura pecuaria e exploracao florestal',
+                    'produtor agropecuario', 'trabalhador florestal', 'trabalhador rural', 'tecnico em agronomia e agrimensura', 'pescador']
+
+public_service_jobs = ['aposentado (exceto servidor publico)', 'agenciador de propaganda','cientista politico',
+                        'diplomata','deputado','magistrado','membro das forcas armadas', 'membro do ministerio publico',
+                        'militar reformado', 'ministro do poder judiciario e magistrado','policial civil', 'policial militar', 'prefeito',
+                        'presidente da republica ministro de estado governador e prefeito', 'senador', 'senador deputado e vereador',
+                        'servidor publico civil aposentado', 'servidor publico estadual',
+                        'servidor publico federal', 'servidor publico municipal', 'serventuario de justica',
+                        'vereador', 'assistente social', 'bombeiro militar']
+
+health_jobs = ['biologo','biologo e biomedico', 'biomedico','enfermeiro','farmaceutico',
+            'medico','operador de equipamento medico e odontologico','nutricionista e assemelhados','psicologo','protetico',
+            'tecnico de enfermagem e assemelhados (exceto enfermeiro)', 'veterinario', 'agente de saude e sanitarista']
+
+corporate_jobs = ['administrador', 'bancario e economiario', 'contador', 'economista', 'empresario','fiscal',
+                    'diretor de empresas',]
+
+law_jobs = ['advogado']
+
+technical_jobs = ['engenheiro', 'estatistico', 'geologo','matematico e atuario', 
+                    'operador de computador','programador de computador', 'analista de sistemas', 'estatistico',]
+
+industrial_jobs = ['industrial','petroleiro','operador de instalacao de producao de energia eletrica e nuclear', 
+                    'tecnico de mecanica', 'tecnico de mineracao metalurgia e geologia','torneiro mecanico',
+                    'trabalhador de construcao civil', 'tecnico de obras civis estradas saneamento e trabalhador assemelhado',
+                    'trabalhador de fabricacao de papel e papelao', 'carvoeiro', 'tecnico contabilidade estatistica economia domestica e administracao',
+                    'trabalhador de fabricacao de artefatos de madeira', 'trabalhador metalurgico e siderurgico']
+
+professional_jobs = ['bibliotecario', 'bibliotecario arquivista museologo e arqueologo', 'diretor de estabelecimento de ensino', 
+                    'fonoaudiologo', 'historiador', 'odontologo', 'pedagogo', 'professor de ensino de primeiro e segundo graus', 
+                    'professor de ensino fundamental', 'professor de ensino medio', 'professor de ensino superior', 
+                    'professor e instrutor de formacao profissional', 'publicitario', 'quimico', 'relacoes-publicas', 'sociologo', 
+                    'tecnico de laboratorio e raios x', 'tecnico de obras civis estradas saneamento e assemelhados', 
+                    'tecnico de eletricidade eletronica e telecomunicacoes', 'tecnico de quimica', 'tecnico em edificacoes', 
+                    'tecnico em informatica', 'tecnico textil', 'terapeuta']
+
+mining_jobs = ['garimpeiro', 'tecnico de mineracao metalurgia e geologia', 'petroleiro', 'carvoeiro']
+
+
+
+#############################################################################################################################################
 agriculture_jobs =  ['agricultor', 'agronomo','pecuarista','operador de implemento de agricultura pecuaria e exploracao florestal',
                     'produtor agropecuario', 'trabalhador florestal', 'trabalhador rural', 'tecnico em agronomia e agrimensura', 'pescador']
 

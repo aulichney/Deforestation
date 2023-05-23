@@ -1,4 +1,4 @@
-
+#before parallelizing
 def train_random_forest(X_train, Y_train, X_test, Y_test, FILE_PATH):
     #random forest
     pipeline = Pipeline([

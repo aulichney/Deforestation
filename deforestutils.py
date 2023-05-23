@@ -507,7 +507,7 @@ def grid_search_fit(pipeline, param_grid, cv, X_train, Y_train):
     return {"model": search.best_estimator_,
             "best_score": search.best_score_}
 
-def train_random_forest(X_train, Y_train, X_test, Y_test, FILE_PATH, FOLDER_NAME):
+def train_random_forest(X_train, Y_train, X_test, Y_test, FILE_PATH, FOLDER_NAME, muni_cv):
     pipeline = Pipeline([
         ('scaler', StandardScaler()),
         ('model', RandomForestRegressor(n_estimators=500))
@@ -534,7 +534,7 @@ def train_random_forest(X_train, Y_train, X_test, Y_test, FILE_PATH, FOLDER_NAME
     return randomforest_features_df
 
 
-def train_lasso(X_train, Y_train, X_test, Y_test, FILE_PATH, FOLDER_NAME):
+def train_lasso(X_train, Y_train, X_test, Y_test, FILE_PATH, FOLDER_NAME, muni_cv):
     pipeline = Pipeline([
                     ('scaler',StandardScaler()),
                     ('model',Lasso())
@@ -562,7 +562,7 @@ def train_lasso(X_train, Y_train, X_test, Y_test, FILE_PATH, FOLDER_NAME):
 
     return lasso_features_df
 
-def train_gradient_boost(X_train, Y_train, X_test, Y_test, FILE_PATH, FOLDER_NAME):
+def train_gradient_boost(X_train, Y_train, X_test, Y_test, FILE_PATH, FOLDER_NAME, muni_cv):
     pipeline = Pipeline([
                 ('scaler',StandardScaler()),
                 ('model',GradientBoostingRegressor(learning_rate = 0.1, min_samples_leaf = 2))
@@ -589,7 +589,7 @@ def train_gradient_boost(X_train, Y_train, X_test, Y_test, FILE_PATH, FOLDER_NAM
 
     return gradient_boosting_features_df
 
-def train_neural_network(X_train, Y_train, X_test, Y_test, FILE_PATH, FOLDER_NAME):
+def train_neural_network(X_train, Y_train, X_test, Y_test, FILE_PATH, FOLDER_NAME, muni_cv):
     pipeline = Pipeline([
                     ('scaler',StandardScaler()),
                     ('model', MLPRegressor(activation = 'logistic', random_state=42))

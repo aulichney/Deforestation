@@ -1,0 +1,205 @@
+,Feature,Coeff
+4,aspect,0.2269843864987585
+43,n_companies_EDUCATION,0.18896492469330828
+48,n_companies_BASIC METALLURGY,0.17911579025211788
+69,n_companies_CHEMICALS,0.07992390460515014
+100,n_jobs_BASIC METALLURGY,0.04098084678853933
+93,n_jobs_CULTURE AND SPORT,0.04008737752060978
+102,n_jobs_WOOD PROD,0.03964553234921037
+110,n_jobs_RETAIL,0.022785716734546633
+88,n_jobs_AUTOMOBILES AND TRANSPORT,0.018606243908342795
+6,near_roads,0.017890890796859283
+160,incumbant,0.016876805411818185
+59,n_companies_COMPUTING,0.016769948426054854
+29,n_companies_PUBLIC ADMIN,0.016143155664649852
+58,n_companies_RETAIL,0.009950582279069782
+107,n_jobs_TRANSPORTATION,0.007897553950534401
+7,near_hidrovia,0.006522506533480722
+53,n_companies_SERVICES FOR COMPANIES,0.006449496401195901
+16,populacao,0.0056179399866625535
+5,near_mines,0.004084811655938543
+191,pasture,0.004040368279979422
+64,n_companies_CLOTHING,0.0038660574433604187
+31,n_companies_FOOD AND DRINKS,0.0033110466486822167
+83,n_jobs_FOOD AND DRINKS,0.00298183569692544
+3,slope,0.002774742690461768
+2,elevation,0.002696353453487363
+108,n_jobs_GROUND TRANSPORT,0.0025196985122110326
+36,n_companies_AUTOMOBILES AND TRANSPORT,0.0023992014168401875
+141,assassination_attempt,0.0023643545731973307
+199,other_crop,0.002305336815705583
+138,n_jobs_TOTAL,0.0022906990687259488
+95,n_jobs_EDUCATION,0.002006662662796587
+96,n_jobs_ELECTRICITY AND GAS,0.0018285842535068716
+49,n_companies_MINING,0.0015617527192644388
+70,n_companies_WATER-BASED TRANSPORTATION,0.0015611907313091194
+44,n_companies_ELECTRICITY AND GAS,0.0015497231085563714
+115,n_jobs_FORESTRY,0.0015263736983573918
+158,emiss_agr_full,0.001409704376062346
+35,n_companies_ASSOCIATIVE ACTIVITIES,0.0013256278415188568
+111,n_jobs_COMPUTING,0.0012728941037932996
+45,n_companies_FINANCES,0.001182034567836845
+177,overall_winner_partido_PL,0.0011698295294239542
+143,expen_agri,0.0007626379236318614
+39,n_companies_CONSTRUCTION,0.0007593467157506542
+159,emiss_agropec_full,0.0007584749736357096
+166,overall_winner_public_service_job,0.0006662402178527409
+40,n_companies_MAIL AND TELECOM,0.0006044251021510275
+1,rain1,0.0005265194003259367
+196,water,0.0005252080810162743
+63,n_companies_FORESTRY,0.0003602458388557221
+185,winner_votes_proportion,0.0003282277363899805
+186,vote_participation_proportion,0.00030606707738188376
+84,n_jobs_ACCOMODATION AND FOOD,0.0002810322501575117
+61,n_companies_METALLIC PRODUCTS,0.00024833023748973665
+25,mining_jobs,0.00022409298467187622
+142,f_emitted_count,0.00021177496655775432
+179,runnerup_partido_PT,0.0001681757492271992
+203,forest_lag,2.671409605389243e-05
+42,n_companies_EDITING AND PRINTING,0.0
+21,gold,0.0
+20,copper,0.0
+72,n_companies_RECYCLING,0.0
+73,n_companies_LEATHERS AND FOOTWEAR,0.0
+74,n_companies_RUBBER AND PLASTIC,0.0
+19,silver,0.0
+18,ironore,0.0
+75,n_companies_TEXTILES,0.0
+17,pib_pc,0.0
+15,fed_election_year,0.0
+76,n_companies_RESEARCH AND DEVELOPMENT,0.0
+77,n_companies_AERO TRANSPORT,0.0
+78,n_companies_SMOKE,0.0
+79,n_companies_PETROLEUM REFINING,0.0
+14,bolsonaro,0.0
+80,n_companies_,0.0
+13,temer,0.0
+81,n_jobs_PUBLIC ADMIN,0.0
+82,n_jobs_AGRICULTURE,0.0
+12,dilma,0.0
+11,lula,0.0
+10,new_forest_code,0.0
+9,mun_election_year,0.0
+8,indigenous_homol,0.0
+85,n_jobs_EQUIPMENT RENTAL,0.0
+86,n_jobs_WHOLESALE,0.0
+71,n_companies_REAL ESTATE,0.0
+22,soy_price,0.0
+46,n_companies_CLEANING AND SEWAGE,0.0
+68,n_companies_FISHING AND AQUACULTURE,0.0
+47,n_companies_MACHINERY,0.0
+41,n_companies_CULTURE AND SPORT,0.0
+38,n_companies_TRADE REP VEHICLES,0.0
+37,n_companies_FINANCIAL ASSISTANCE,0.0
+34,n_companies_WHOLESALE,0.0
+33,n_companies_EQUIPMENT RENTAL,0.0
+32,n_companies_ACCOMODATION AND FOOD,0.0
+50,n_companies_WOOD PROD,0.0
+51,n_companies_NON-METALLIC MINERAL PRODUCTS,0.0
+52,n_companies_HEALTH,0.0
+30,n_companies_AGRICULTURE,0.0
+54,n_companies_PERSONAL SERVICES,0.0
+55,n_companies_TRANSPORTATION,0.0
+56,n_companies_GROUND TRANSPORT,0.0
+57,n_companies_WATER TREATMENT AND DISTRIBUTION,0.0
+28,PIB,0.0
+27,construction_jobs,0.0
+60,n_companies_INSURANCE AND SOCIAL SECURITY,0.0
+26,public_jobs,0.0
+62,n_companies_DOMESTIC SERVICES,0.0
+24,ag_jobs,0.0
+23,beef_price,0.0
+65,n_companies_PAPER,0.0
+66,n_companies_INTERNATIONAL BODIES,0.0
+67,n_companies_OIL AND GAS,0.0
+87,n_jobs_ASSOCIATIVE ACTIVITIES,0.0
+101,n_jobs_MINING,0.0
+89,n_jobs_FINANCIAL ASSISTANCE,0.0
+148,expen_prom_ani_pro,0.0
+172,overall_winner_mining_job,0.0
+171,overall_winner_professional_job,0.0
+170,overall_winner_technical_job,0.0
+169,overall_winner_law_job,0.0
+168,overall_winner_corporate_job,0.0
+167,overall_winner_health_job,0.0
+165,overall_winner_agriculture_job,0.0
+164,overall_winner_feminino,0.0
+163,overall_winner_complete_college,0.0
+162,special,0.0
+161,term_limited_seat,0.0
+157,emiss_pec_full,0.0
+156,audits,0.0
+155,illegal_industry,0.0
+154,illegal_other,0.0
+153,illegal_mining,0.0
+152,expen_min_fuel,0.0
+151,expen_agr_defense,0.0
+150,expen_other_agr,0.0
+173,overall_winner_partido_PT,0.0
+174,overall_winner_partido_PMDB_MDB,0.0
+175,overall_winner_partido_PSDB,0.0
+190,silvicultura,0.0
+201,citrus,0.0
+200,coffee,0.0
+198,rice,0.0
+197,soybean,0.0
+195,mining,0.0
+194,urban,0.0
+193,mosaic_ag,0.0
+192,sugarcane,0.0
+189,mangrove,0.0
+176,overall_winner_partido_DEM,0.0
+188,savanna,0.0
+187,forest_formation,0.0
+184,runnerup_partido_other,0.0
+183,runnerup_partido_PL,0.0
+182,runnerup_partido_DEM,0.0
+181,runnerup_partido_PSDB,0.0
+180,runnerup_partido_PMDB_MDB,0.0
+178,overall_winner_partido_other,0.0
+149,expen_prom_veg_pro,0.0
+147,expen_petrol,0.0
+90,n_jobs_TRADE REP VEHICLES,0.0
+146,expen_mining,0.0
+119,n_jobs_OIL AND GAS,0.0
+118,n_jobs_INTERNATIONAL BODIES,0.0
+117,n_jobs_PAPER,0.0
+116,n_jobs_CLOTHING,0.0
+114,n_jobs_DOMESTIC SERVICES,0.0
+113,n_jobs_METALLIC PRODUCTS,0.0
+112,n_jobs_INSURANCE AND SOCIAL SECURITY,0.0
+109,n_jobs_WATER TREATMENT AND DISTRIBUTION,0.0
+106,n_jobs_PERSONAL SERVICES,0.0
+105,n_jobs_SERVICES FOR COMPANIES,0.0
+104,n_jobs_HEALTH,0.0
+103,n_jobs_NON-METALLIC MINERAL PRODUCTS,0.0
+202,other_perennial,0.0
+99,n_jobs_MACHINERY,0.0
+98,n_jobs_CLEANING AND SEWAGE,0.0
+97,n_jobs_FINANCES,0.0
+94,n_jobs_EDITING AND PRINTING,0.0
+92,n_jobs_MAIL AND TELECOM,0.0
+91,n_jobs_CONSTRUCTION,0.0
+120,n_jobs_FISHING AND AQUACULTURE,0.0
+121,n_jobs_CHEMICALS,0.0
+122,n_jobs_WATER-BASED TRANSPORTATION,0.0
+133,n_jobs_TOTAL INDUSTRIAL,0.0
+145,expen_agr_org,0.0
+144,expen_env_man,0.0
+140,assassination,0.0
+139,murder_threats,0.0
+137,n_companies_TOTAL,0.0
+136,n_companies_TOTAL SERVICE,0.0
+135,n_companies_TOTAL INDUSTRIAL,0.0
+134,n_jobs_TOTAL SERVICE,0.0
+132,n_jobs_,0.0
+123,n_jobs_REAL ESTATE,0.0
+131,n_jobs_PETROLEUM REFINING,0.0
+130,n_jobs_SMOKE,0.0
+129,n_jobs_AERO TRANSPORT,0.0
+128,n_jobs_RESEARCH AND DEVELOPMENT,0.0
+127,n_jobs_TEXTILES,0.0
+126,n_jobs_RUBBER AND PLASTIC,0.0
+125,n_jobs_LEATHERS AND FOOTWEAR,0.0
+124,n_jobs_RECYCLING,0.0
+0,year,0.0

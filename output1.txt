@@ -1,0 +1,6 @@
+[2004 2005 2006 2007]
+(665048, 216)
+Test set pct of data: 30.0
+New test/train indices generated and read in
+[2007]
+[2004 2005 2006]

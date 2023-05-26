@@ -49,11 +49,11 @@ def create_path(path_string):
 
 def setup_directory(FOLDER_NAME):
     paths_to_create = [ f'FeatureImportanceResults/{FOLDER_NAME}', 
-                        f'FeatureImportanceResults/{FOLDER_NAME}/TestTrainIndices'
+                        f'FeatureImportanceResults/{FOLDER_NAME}/TestTrainIndices',
                         f'FeatureImportanceResults/{FOLDER_NAME}/TestTrainIndices/TestTrainSplit', 
                         f'FeatureImportanceResults/{FOLDER_NAME}/TestTrainIndices/CrossValidation', 
                         f'FeatureImportanceResults/{FOLDER_NAME}/PredictedDeforestation', 
-                        f'FeatureImportanceResults/{FOLDER_NAME}/ModelFits'
+                        f'FeatureImportanceResults/{FOLDER_NAME}/ModelFits',
                         f'FeatureImportanceResults/TestTrainIndices', 
                         f'FeatureImportanceResults/TestTrainIndices/TestTrainSplit', 
                         f'FeatureImportanceResults/TestTrainIndices/CrossValidation',

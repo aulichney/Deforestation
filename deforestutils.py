@@ -598,7 +598,7 @@ def train_neural_network(X_train, Y_train, X_test, Y_test, FILE_PATH, FOLDER_NAM
     cv = muni_cv
 
     # Perform grid search with parallelization
-    results = Parallel(n_jobs=-1)(
+    results = Parallel(n_jobs=-2, verbose=10)(
         delayed(grid_search_fit)(pipeline, param_grid, cv, X_train, Y_train)
         for _ in range(10)
     )
@@ -606,12 +606,14 @@ def train_neural_network(X_train, Y_train, X_test, Y_test, FILE_PATH, FOLDER_NAM
     best_model = max(results, key=lambda x: x["best_score"])["model"]
 
     dump(best_model, f'FeatureImportanceResults/{FOLDER_NAME}/ModelFits/pipeline_neuralnetwork.joblib')
+    
+    print('Best model found and saved.')
 
-    explainer = shap.KernelExplainer(best_model.predict, X_train)
+    explainer = shap.KernelExplainer(best_model.predict,shap.sample(X_train, 100), nsamples = 100)
 
-    shap_values = explainer.shap_values(X_test, nsamples=1000)
-
-    shap.summary_plot(shap_values,X_test,feature_names=X_test.columns)
+    shap_values = explainer.shap_values(shap.sample(X_test, 1000), nsamples=100)
+    
+    #shap.summary_plot(shap_values, X_test, feature_names=X_test.columns)
 
     feature_names = X_train.columns
 

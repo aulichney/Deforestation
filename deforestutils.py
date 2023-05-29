@@ -577,7 +577,7 @@ def train_gradient_boost(X_train, Y_train, X_test, Y_test, FILE_PATH, FOLDER_NAM
     )
     best_model = max(results, key=lambda x: x["best_score"])["model"]
 
-    dump(best_model.named_steps['model'], f'FeatureImportanceResults/{FOLDER_NAME}/ModelFits/pipeline_gradientboosting.joblib')
+    dump(best_model.named_steps['model'], f'FeatureImportanceResults/{FOLDER_NAME}/ModelFits/pipeline_gradientboosting.joblib', compress=True)
 
     coefficients = best_model.named_steps['model'].feature_importances_
     importance = np.abs(coefficients)

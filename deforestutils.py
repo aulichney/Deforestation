@@ -598,7 +598,7 @@ def train_neural_network(X_train, Y_train, X_test, Y_test, FILE_PATH, FOLDER_NAM
     cv = muni_cv
 
     # Perform grid search with parallelization
-    results = Parallel(n_jobs=-2, verbose=10)(
+    results = Parallel(n_jobs=-1, verbose=10)(
         delayed(grid_search_fit)(pipeline, param_grid, cv, X_train, Y_train)
         for _ in range(10)
     )
@@ -639,11 +639,16 @@ def train_super_learner( X_train, Y_train, X_test, Y_test, FILE_PATH, muni_cv, b
     print('Meta Data Shape: ', meta_X.shape, meta_y.shape)
 
     fit_base_models(X_train, Y_train, models)
+    print('Done fitting base models')
+
     meta_model = fit_meta_model(meta_X, meta_y)
+    print('Done fitting meta models')
 
     evaluate_models(X_test, Y_test, models)
+    print('Done evaluating models')
 
     yhat = super_learner_predictions(X_test, models, meta_model)
+    print('Done evaluating Yhat')
     np.savetxt(f'FeatureImportanceResults/{FOLDER_NAME}/PredictedDeforestation/yhat_superlearner.txt', yhat, delimiter=",")
 
     # Evaluate the performance of the model
@@ -652,22 +657,28 @@ def train_super_learner( X_train, Y_train, X_test, Y_test, FILE_PATH, muni_cv, b
 
     #Super Learner Feature Importance
     random_forest_weighted_importance = models[0].feature_importances_ * meta_model.coef_[0]
-    lasso_weighted_importance = models[1].coef_ * meta_model.coef_[1]
-    gradient_boosting_weighted_importance = models[2].feature_importances_ * meta_model.coef_[2]
+    print('Done rf feature importance')
 
-    explainer = shap.KernelExplainer(models[2].predict, X_train)
-    shap_values = explainer.shap_values(X_test, nsamples=100)
+    lasso_weighted_importance = models[1].coef_ * meta_model.coef_[1]
+    print('Done lasso feature importance')
+    
+    gradient_boosting_weighted_importance = models[2].feature_importances_ * meta_model.coef_[2]
+    print('Done gradient boosting importance')
+
+    explainer = shap.KernelExplainer(models[2].predict, shap.sample(X_train, 100), nsamples = 100)
+    shap_values = explainer.shap_values(shap.sample(X_test, 1000), nsamples=100)
     feature_names = X_train.columns
     rf_resultX = pd.DataFrame(shap_values, columns = feature_names)
     vals = np.abs(rf_resultX.values).mean(0)
     shap_importance = pd.DataFrame(list(zip(feature_names, vals)),
                                     columns=['col_name','feature_importance_vals'])
-
+    print('Done nn feature importance')
 
     nn_weighted_importance = shap_importance.feature_importance_vals * meta_model.coef_[3]
 
     super_learner_feature_importance = np.mean([random_forest_weighted_importance, lasso_weighted_importance, gradient_boosting_weighted_importance, nn_weighted_importance], axis = 0)
 
+    print('Done all feature importance for this super learner')
     super_learner_features_df = generate_results_table(super_learner_feature_importance, X_train.columns, 'superlearner', yhat, Y_test, FILE_PATH, normalized = True)
 
     return super_learner_features_df

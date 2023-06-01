@@ -716,3 +716,28 @@ def train_super_learner( X_train, Y_train, X_test, Y_test, FILE_PATH, muni_cv, b
 
     return super_learner_features_df
 
+def plot_feature_importance(FILE_PATH, method, use_abs = True):
+    file_path = FILE_PATH + 'FeatureImportance/' + method + '.csv'
+
+    df = pd.read_csv(file_path, index_col=0)
+
+    abs_sum = df['Coeff'].abs().sum()
+    df['Coeff'] = df['Coeff'] / abs_sum
+
+    coeff_values = df['Coeff'].head(10)
+    feature_labels = df['Feature'].head(10)
+
+    if abs:
+        coeff_values = abs(coeff_values)
+
+    sns.set_style('whitegrid')
+    plt.figure(figsize=(10, 6))
+    sns.barplot(x=coeff_values, y=feature_labels, color='green')
+
+    # Set plot title and labels
+    plt.title(FOLDER_NAME + ' ' + method.upper() )
+    plt.xlabel('Abs')
+    #plt.ylabel('Feature')
+    plt.tight_layout()
+    plt.savefig(FILE_PATH + 'FeatureImportance/' + 'features_' + method)
+    plt.show()

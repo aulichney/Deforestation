@@ -39,12 +39,16 @@ from deforestutils import *
 
 from joblib import dump, load
 from joblib import Parallel, delayed
+import seaborn as sns
 
 
 
 def create_path(path_string):
     if not os.path.exists(path_string):
         os.makedirs(path_string)
+
+def file_exists(file_path):
+    return os.path.isfile(file_path)
 
 
 def setup_directory(FOLDER_NAME):
@@ -54,6 +58,7 @@ def setup_directory(FOLDER_NAME):
                         f'FeatureImportanceResults/{FOLDER_NAME}/TestTrainIndices/CrossValidation', 
                         f'FeatureImportanceResults/{FOLDER_NAME}/PredictedDeforestation', 
                         f'FeatureImportanceResults/{FOLDER_NAME}/ModelFits',
+                        f'FeatureImportanceResults/{FOLDER_NAME}/DeforestationPlots',
                         f'FeatureImportanceResults/TestTrainIndices', 
                         f'FeatureImportanceResults/TestTrainIndices/TestTrainSplit', 
                         f'FeatureImportanceResults/TestTrainIndices/CrossValidation',
@@ -62,9 +67,11 @@ def setup_directory(FOLDER_NAME):
 
     for path in paths_to_create:
         create_path(path)
-
-    with open(f'FeatureImportanceResults/{FOLDER_NAME}/performance.txt', 'w+') as f:
-            f.write(f'MODEL PERFORMANCES\n')
+    
+    performance_file_path = f'FeatureImportanceResults/{FOLDER_NAME}/performance.txt'
+    if not file_exists(performance_file_path):
+        with open(performance_file_path, 'w+') as f:
+                f.write(f'MODEL PERFORMANCES\n')
     print('Files setup.')
 
 def get_full_data(START_YEAR_TRAIN, YEARS_TO_TRAIN):
@@ -416,6 +423,32 @@ def visualize_predictions(yhat_list, Y_test, FILE_PATH, FOLDER_NAME):
         # Save the figure
         plt.savefig(FILE_PATH + 'DeforestPlot_' + col_name)
         plt.show()
+
+def plot_feature_importance( method, FILE_PATH, FOLDER_NAME, use_abs = True):
+    file_path = FILE_PATH + 'FeatureImportance/' + method + '.csv'
+
+    df = pd.read_csv(file_path, index_col=0)
+
+    abs_sum = df['Coeff'].abs().sum()
+    df['Coeff'] = df['Coeff'] / abs_sum
+
+    coeff_values = df['Coeff'].head(10)
+    feature_labels = df['Feature'].head(10)
+
+    if abs:
+        coeff_values = abs(coeff_values)
+
+    sns.set_style('whitegrid')
+    plt.figure(figsize=(10, 6))
+    sns.barplot(x=coeff_values, y=feature_labels, color='green')
+
+    # Set plot title and labels
+    plt.title(FOLDER_NAME + ' ' + method.upper() )
+    plt.xlabel('Abs')
+    #plt.ylabel('Feature')
+    plt.tight_layout()
+    plt.savefig(FILE_PATH + 'FeatureImportance/' + 'features_' + method)
+    plt.show()
 
 def get_yhat_list(FOLDER_NAME):
     randomforest_yhat = np.genfromtxt(f'FeatureImportanceResults/{FOLDER_NAME}/PredictedDeforestation/yhat_randomforest.txt', delimiter=",")

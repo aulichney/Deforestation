@@ -404,6 +404,9 @@ def visualize_predictions(yhat_list, Y_test, FILE_PATH, FOLDER_NAME):
     prediction_df['actual']  = -np.array(Y_test)
     prediction_df.to_csv(FILE_PATH + 'predictions.csv')
 
+    # for this_col in ['avg', 'randomforest', 'lasso', 'gradientboosting', 'nn', 'superlearner']: 
+    #      prediction_df[this_col] = np.log(prediction_df[this_col])
+
     for col_name in ['randomforest', 'lasso', 'gradientboosting', 'nn', 'superlearner', 'avg']:
         gdf_yhat = gpd.GeoDataFrame(prediction_df, geometry = gpd.points_from_xy(prediction_df.x, prediction_df.y))
         fig, axs = plt.subplots(1, 1, figsize=(15, 12))
@@ -716,7 +719,7 @@ def train_super_learner( X_train, Y_train, X_test, Y_test, FILE_PATH, muni_cv, b
 
     return super_learner_features_df
 
-def plot_feature_importance(FILE_PATH, method, use_abs = True):
+def plot_feature_importance(FILE_PATH, FOLDER_NAME, method, use_abs = True):
     file_path = FILE_PATH + 'FeatureImportance/' + method + '.csv'
 
     df = pd.read_csv(file_path, index_col=0)
@@ -728,7 +731,7 @@ def plot_feature_importance(FILE_PATH, method, use_abs = True):
     feature_labels = df['Feature'].head(10)
 
     if abs:
-        coeff_values = abs(coeff_values)
+        coeff_values = np.log(abs(coeff_values))
 
     sns.set_style('whitegrid')
     plt.figure(figsize=(10, 6))
@@ -736,7 +739,7 @@ def plot_feature_importance(FILE_PATH, method, use_abs = True):
 
     # Set plot title and labels
     plt.title(FOLDER_NAME + ' ' + method.upper() )
-    plt.xlabel('Abs')
+    #plt.xlabel('Abs')
     #plt.ylabel('Feature')
     plt.tight_layout()
     plt.savefig(FILE_PATH + 'FeatureImportance/' + 'features_' + method)

@@ -427,10 +427,49 @@ def visualize_predictions(yhat_list, Y_test, FILE_PATH, FOLDER_NAME):
         plt.savefig(FILE_PATH + 'DeforestPlot_' + col_name)
         plt.show()
 
-def plot_feature_importance( method, FILE_PATH, FOLDER_NAME, use_abs = True):
+def visualize_predictions_single_plot(yhat_list, Y_test, FILE_PATH, FOLDER_NAME):
+    prediction_df = -pd.DataFrame(yhat_list).T
+    prediction_df.columns = ['randomforest', 'lasso', 'gradientboosting', 'nn', 'superlearner']
+    prediction_df['avg'] = prediction_df.mean(axis=1)
+
+    test_coords = pd.read_csv(f'FeatureImportanceResults/{FOLDER_NAME}/TestTrainIndices/TestTrainSplit/test_coordinates.csv')
+    prediction_df['x'] = np.array(test_coords['x'])
+    prediction_df['y'] = np.array(test_coords['y'])
+
+    prediction_df['actual']  = -np.array(Y_test)
+    prediction_df.to_csv(FILE_PATH + 'predictions.csv')
+
+    for this_col in ['avg', 'randomforest', 'lasso', 'gradientboosting', 'nn', 'superlearner']: 
+         prediction_df[this_col] = np.log(prediction_df[this_col])
+
+    fig, axs = plt.subplots(1, 6, figsize=(30, 5), layout="constrained", dpi=200) 
+
+    for i, col_name in enumerate(['randomforest', 'lasso', 'gradientboosting', 'nn', 'superlearner', 'avg']):
+        gdf_yhat = gpd.GeoDataFrame(prediction_df, geometry=gpd.points_from_xy(prediction_df.x, prediction_df.y))
+        marker_size = 0.05
+        gdf_yhat.plot(column=col_name, cmap='Reds', ax=axs[i], markersize=marker_size) 
+
+        axs[i].set_title(col_name) 
+        axs[i].set_axis_off()  
+
+    sm = plt.cm.ScalarMappable(cmap='Reds')
+    sm.set_array(prediction_df['avg'])
+    cbar = plt.colorbar(sm, fraction=0.046, pad=0.04)
+
+    fig.suptitle(FOLDER_NAME, y=0.99,  fontsize='large')
+    plt.savefig(FILE_PATH + 'DeforestPlot_all')
+    plt.show()
+
+
+def plot_feature_importance(FILE_PATH, FOLDER_NAME, method, SHOW = True, INCLUDE_FOREST = True, use_abs = True):
     file_path = FILE_PATH + 'FeatureImportance/' + method + '.csv'
 
     df = pd.read_csv(file_path, index_col=0)
+    file_path_save = FILE_PATH + 'FeatureImportance/' + 'features_' + method
+
+    if not INCLUDE_FOREST:
+        df = df[~df.Feature.isin(['forest_lag', 'forest_formation'])]
+        file_path_save = FILE_PATH + 'FeatureImportance/' + 'features_exclude_forest_vars_' + method
 
     abs_sum = df['Coeff'].abs().sum()
     df['Coeff'] = df['Coeff'] / abs_sum
@@ -439,7 +478,7 @@ def plot_feature_importance( method, FILE_PATH, FOLDER_NAME, use_abs = True):
     feature_labels = df['Feature'].head(10)
 
     if abs:
-        coeff_values = abs(coeff_values)
+        coeff_values = (abs(coeff_values))
 
     sns.set_style('whitegrid')
     plt.figure(figsize=(10, 6))
@@ -447,11 +486,11 @@ def plot_feature_importance( method, FILE_PATH, FOLDER_NAME, use_abs = True):
 
     # Set plot title and labels
     plt.title(FOLDER_NAME + ' ' + method.upper() )
-    plt.xlabel('Abs')
+    #plt.xlabel('Abs')
     #plt.ylabel('Feature')
     plt.tight_layout()
-    plt.savefig(FILE_PATH + 'FeatureImportance/' + 'features_' + method)
-    plt.show()
+    plt.savefig(file_path_save)
+    if SHOW: plt.show()
 
 def get_yhat_list(FOLDER_NAME):
     randomforest_yhat = np.genfromtxt(f'FeatureImportanceResults/{FOLDER_NAME}/PredictedDeforestation/yhat_randomforest.txt', delimiter=",")

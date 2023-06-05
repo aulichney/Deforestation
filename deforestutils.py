@@ -53,6 +53,7 @@ def file_exists(file_path):
 
 def setup_directory(FOLDER_NAME):
     paths_to_create = [ f'FeatureImportanceResults/{FOLDER_NAME}', 
+                        f'FeatureImportanceResults/Evolution',
                         f'FeatureImportanceResults/{FOLDER_NAME}/TestTrainIndices',
                         f'FeatureImportanceResults/{FOLDER_NAME}/TestTrainIndices/TestTrainSplit', 
                         f'FeatureImportanceResults/{FOLDER_NAME}/TestTrainIndices/CrossValidation', 
@@ -506,6 +507,11 @@ def plot_feature_importance_all_methods(X_train, FILE_PATH, FOLDER_NAME, method,
 
     base_df['avg'] = base_df.drop('Feature', axis=1).mean(axis=1)
 
+    avg_df = base_df[['Feature', 'avg']]
+    avg_df.columns = ['Feature', 'Coeff']
+    avg_df = avg_df.iloc[avg_df['Coeff'].abs().argsort()[::-1]]
+    avg_df.to_csv(f'{FILE_PATH}/FeatureImportance/avg.csv')
+
     sns.set_style('whitegrid')
 
     fig, axs = plt.subplots(1, 6, figsize=(40, 5), layout="constrained", dpi=250) 
@@ -545,6 +551,7 @@ def plot_feature_importance_all_methods(X_train, FILE_PATH, FOLDER_NAME, method,
     fig.suptitle(FOLDER_NAME,  fontsize='large')
     plt.savefig(file_path_string)
     plt.show()
+
 
 
 def get_yhat_list(FOLDER_NAME):
@@ -838,3 +845,48 @@ def plot_feature_importance(FILE_PATH, FOLDER_NAME, method, use_abs = True):
     plt.tight_layout()
     plt.savefig(FILE_PATH + 'FeatureImportance/' + 'features_' + method)
     plt.show()
+
+
+def feature_importance_evolution(method_string, INCLUDE_FOREST = True):
+    file_path_string =  f'FeatureImportanceResults/Evolution/evolution_{method_string}'
+
+    sns.set_style('whitegrid')
+    fig, axs = plt.subplots(2, 5, figsize=(40, 10), layout="constrained", dpi=250) 
+
+    axs = axs.flatten()
+    for i, start_year in enumerate([2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013]):
+        START_YEAR_TRAIN = start_year
+        NUMBER_YEARS_TRAIN = 3
+        YEARS_TO_TRAIN = [START_YEAR_TRAIN + i  for i in range(NUMBER_YEARS_TRAIN + 1)]
+        PREDICT_YEAR = START_YEAR_TRAIN + NUMBER_YEARS_TRAIN
+        FOLDER_NAME = ''.join([f'{START_YEAR_TRAIN + i}_' for i in list(range(NUMBER_YEARS_TRAIN))]) + f'PREDICT_{PREDICT_YEAR}'
+
+        df_path = f'FeatureImportanceResults/{FOLDER_NAME}/FeatureImportance/{method_string}.csv'
+        this_df = pd.read_csv(df_path, index_col=0)
+
+        if not INCLUDE_FOREST:
+                this_df = this_df[~this_df.Feature.isin(['forest_lag', 'forest_formation'])]
+                file_path_string = f'FeatureImportanceResults/Evolution/evolution_exclude_forest_{method_string}'
+                
+        abs_sum = this_df['Coeff'].abs().sum()
+        this_df['Coeff'] = this_df['Coeff'] / abs_sum
+        this_df = this_df.sort_values(by='Coeff', ascending = False)
+
+        coeff_values = this_df['Coeff'].head(10)
+        feature_labels = this_df['Feature'].head(10)
+        if abs: coeff_values = (abs(coeff_values))
+
+        sns.barplot(x=coeff_values, y=feature_labels, color='green', ax=axs[i])
+        axs[i].set_title(FOLDER_NAME) 
+        axs[i].set(ylabel='')
+        axs[i].set(xlabel='')
+        
+        for u, patch in enumerate(axs[i].patches):
+                width = patch.get_width()
+                axs[i].annotate(f'{width:.2f}', (width, patch.get_y()+0.5), ha='left', va='center')
+
+    fig.suptitle(f'Feature Importance Evolution {method_string}',  fontsize='large')
+    plt.savefig(file_path_string)
+    plt.show()
+
+

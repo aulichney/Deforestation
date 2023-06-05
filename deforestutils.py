@@ -440,7 +440,7 @@ def visualize_predictions_single_plot(yhat_list, Y_test, FILE_PATH, FOLDER_NAME)
     prediction_df.to_csv(FILE_PATH + 'predictions.csv')
 
     for this_col in ['avg', 'randomforest', 'lasso', 'gradientboosting', 'nn', 'superlearner']: 
-         prediction_df[this_col] = np.log(prediction_df[this_col])
+         prediction_df[this_col] = (prediction_df[this_col])
 
     fig, axs = plt.subplots(1, 6, figsize=(30, 5), layout="constrained", dpi=200) 
 
@@ -491,6 +491,61 @@ def plot_feature_importance(FILE_PATH, FOLDER_NAME, method, SHOW = True, INCLUDE
     plt.tight_layout()
     plt.savefig(file_path_save)
     if SHOW: plt.show()
+
+def plot_feature_importance_all_methods(X_train, FILE_PATH, FOLDER_NAME, method, SHOW = True, INCLUDE_FOREST = True, use_abs = True):
+    base_df = pd.DataFrame(X_train.columns)
+    base_df.columns = ['Feature']
+
+    file_path_string = FILE_PATH + '/FeatureImportance/features_all'
+
+    for method in ['randomforest', 'lasso', 'gradientboosting', 'neuralnetwork', 'superlearner']:
+        file_path = FILE_PATH + 'FeatureImportance/' + method + '.csv'
+        df = pd.read_csv(file_path, index_col=0)
+        df.columns = ['Feature', method]
+        base_df = pd.merge(base_df, df, how = 'left', on = 'Feature')
+
+    base_df['avg'] = base_df.drop('Feature', axis=1).mean(axis=1)
+
+    sns.set_style('whitegrid')
+
+    fig, axs = plt.subplots(1, 6, figsize=(40, 5), layout="constrained", dpi=250) 
+
+    for i, col_name in enumerate(['randomforest', 'lasso', 'gradientboosting', 'neuralnetwork', 'superlearner', 'avg']):
+        subset_df = base_df[['Feature', col_name]]
+        subset_df.columns = ['Feature', 'Coeff']
+
+        if not INCLUDE_FOREST:
+            subset_df = subset_df[~subset_df.Feature.isin(['forest_lag', 'forest_formation'])]
+            file_path_string = FILE_PATH + '/FeatureImportance/features_all_forest_exclude'
+
+        abs_sum = subset_df['Coeff'].abs().sum()
+        subset_df['Coeff'] = subset_df['Coeff'] / abs_sum
+        subset_df = subset_df.sort_values(by='Coeff', ascending = False)
+
+        coeff_values = subset_df['Coeff'].head(10)
+        feature_labels = subset_df['Feature'].head(10)
+
+        if abs: coeff_values = (abs(coeff_values))
+
+        sns.barplot(x=coeff_values, y=feature_labels, color='green', ax=axs[i])
+
+        for u, patch in enumerate(axs[i].patches):
+            width = patch.get_width()
+            #axs[i].annotate(f'{list(feature_labels)[u]} {width:.2f}', (width/2, patch.get_y()+0.5), ha='center', va='center')
+            axs[i].annotate(f'{width:.2f}', (width, patch.get_y()+0.5), ha='left', va='center')
+
+        axs[i].set_yticklabels(feature_labels.values)
+        axs[i].set(ylabel='')
+
+
+        axs[i].set_title(col_name) 
+        #axs[i].set_axis_off()
+
+
+    fig.suptitle(FOLDER_NAME,  fontsize='large')
+    plt.savefig(file_path_string)
+    plt.show()
+
 
 def get_yhat_list(FOLDER_NAME):
     randomforest_yhat = np.genfromtxt(f'FeatureImportanceResults/{FOLDER_NAME}/PredictedDeforestation/yhat_randomforest.txt', delimiter=",")

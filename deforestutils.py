@@ -751,6 +751,7 @@ def train_neural_network(X_train, Y_train, X_test, Y_test, FILE_PATH, FOLDER_NAM
     shap_values = explainer.shap_values(shap.sample(X_test, 1000), nsamples=100)
     
     #shap.summary_plot(shap_values, X_test, feature_names=X_test.columns)
+    #shap.KernelExplainer(best_model.predict,shap.sample(X_train, 100), nsamples = 100), explainer.shap_values(shap.sample(X_test, 1000), nsamples=100)
 
     feature_names = X_train.columns
 
@@ -888,5 +889,43 @@ def feature_importance_evolution(method_string, INCLUDE_FOREST = True):
     fig.suptitle(f'Feature Importance Evolution {method_string}',  fontsize='large')
     plt.savefig(file_path_string)
     plt.show()
+
+def plot_MSE(): 
+    sns.set_style('whitegrid')
+    fig, axs = plt.subplots(2, 5, figsize=(40, 10), layout="constrained", dpi=250, sharey=True) 
+    axs = axs.flatten()
+
+    for i, start_year in enumerate([2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013]):
+        START_YEAR_TRAIN = start_year
+        NUMBER_YEARS_TRAIN = 3
+        PREDICT_YEAR = START_YEAR_TRAIN + NUMBER_YEARS_TRAIN
+        FOLDER_NAME = ''.join([f'{START_YEAR_TRAIN + i}_' for i in list(range(NUMBER_YEARS_TRAIN))]) + f'PREDICT_{PREDICT_YEAR}'
+        FILE_PATH = f'FeatureImportanceResults/{FOLDER_NAME}/'
+
+        file_path = FILE_PATH + '/performance.txt'
+        with open(file_path, "r") as file:
+            lines = file.readlines()
+        content_list = [line.strip() for line in lines][2:]
+        split_list = [s.split(' MSE: ') for s in content_list]
+        labels = [e[0] for e in split_list]
+        values = [float(e[1]) for e in split_list]
+        sns.barplot(y=values, x=labels, color='blue', orient = 'v', ax=axs[i])
+
+        axs[i].set_title(FOLDER_NAME) 
+        axs[i].set(ylabel='')
+        axs[i].set(xlabel='')
+
+        for j, value in enumerate(values):
+            axs[i].text(j, value, str(round(value, 3)), ha='center', va='bottom')
+
+        # for u, patch in enumerate(axs[i].patches):
+        #         width = patch.get_width()
+        #         axs[i].annotate(f'{width:.2f}', (width, patch.get_y()+0.5), ha='left', va='center')
+
+    fig.suptitle(f'MSE Evolution',  fontsize='large')
+    plt.savefig('FeatureImportanceResults/MSE.png')
+    plt.show()
+
+
 
 

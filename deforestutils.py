@@ -50,30 +50,67 @@ def create_path(path_string):
 def file_exists(file_path):
     return os.path.isfile(file_path)
 
+def add_line_to_file(file_path, line_to_add):
+    if os.path.exists(file_path):
+        with open(file_path, "a") as file:
+            file.write(line_to_add + "\n")
+    else:
+        with open(file_path, "w") as file:
+            file.write(line_to_add + "\n")
 
-def setup_directory(FOLDER_NAME):
-    paths_to_create = [ f'FeatureImportanceResults/{FOLDER_NAME}', 
-                        f'FeatureImportanceResults/Evolution',
-                        f'FeatureImportanceResults/{FOLDER_NAME}/TestTrainIndices',
-                        f'FeatureImportanceResults/{FOLDER_NAME}/TestTrainIndices/TestTrainSplit', 
-                        f'FeatureImportanceResults/{FOLDER_NAME}/TestTrainIndices/CrossValidation', 
-                        f'FeatureImportanceResults/{FOLDER_NAME}/PredictedDeforestation', 
-                        f'FeatureImportanceResults/{FOLDER_NAME}/ModelFits',
-                        f'FeatureImportanceResults/{FOLDER_NAME}/DeforestationPlots',
-                        f'FeatureImportanceResults/TestTrainIndices', 
-                        f'FeatureImportanceResults/TestTrainIndices/TestTrainSplit', 
-                        f'FeatureImportanceResults/TestTrainIndices/CrossValidation',
-                        f'FeatureImportanceResults/TestTrainIndices/Nulls', 
-                        f'FeatureImportanceResults/{FOLDER_NAME}/TestTrainIndices/Nulls']
-
+def setup_base_files(BASE_PATH):
+    paths_to_create = [ f'{BASE_PATH}/TestTrainIndices',
+                        f'{BASE_PATH}/Evolution', 
+                        f'{BASE_PATH}/TestTrainIndices/TestTrainSplit', 
+                        f'{BASE_PATH}/TestTrainIndices/CrossValidation',
+                        f'{BASE_PATH}/TestTrainIndices/Nulls']
     for path in paths_to_create:
         create_path(path)
+    print('Base Files setup.')
+
+def setup_year_files(BASE_PATH, FOLDER_NAME):
+     
+     paths_to_create = [f'FeatureImportanceResults/{FOLDER_NAME}',
+                        f'{BASE_PATH}/{FOLDER_NAME}/{FOLDER_NAME}_FOLD1', 
+                        f'{BASE_PATH}/{FOLDER_NAME}/{FOLDER_NAME}_FOLD2', 
+                        f'{BASE_PATH}/{FOLDER_NAME}/{FOLDER_NAME}_FOLD3']
+     for path in paths_to_create:
+        create_path(path)
     
-    performance_file_path = f'FeatureImportanceResults/{FOLDER_NAME}/performance.txt'
-    if not file_exists(performance_file_path):
-        with open(performance_file_path, 'w+') as f:
-                f.write(f'MODEL PERFORMANCES\n')
-    print('Files setup.')
+
+def setup_fold_files(BASE_PATH, FOLDER_NAME, FOLD_PATH):
+     paths_to_create = [f'{BASE_PATH}/{FOLDER_NAME}/{FOLD_PATH}/TestTrainIndices', 
+                        f'{BASE_PATH}/{FOLDER_NAME}/{FOLD_PATH}/TestTrainIndices/TestTrainSplit', 
+                        f'{BASE_PATH}/{FOLDER_NAME}/{FOLD_PATH}/TestTrainIndices/CrossValidation', 
+                        f'{BASE_PATH}/{FOLDER_NAME}/{FOLD_PATH}/PredictedDeforestation', 
+                        f'{BASE_PATH}/{FOLDER_NAME}/{FOLD_PATH}/ModelFits',
+                        f'{BASE_PATH}/{FOLDER_NAME}/{FOLD_PATH}/DeforestationPlots']
+     for path in paths_to_create:
+        create_path(path)
+    
+     performance_file_path = f'{BASE_PATH}/{FOLDER_NAME}/{FOLD_PATH}/performance.txt' 
+
+     add_line_to_file(performance_file_path, f'MODEL PERFORMANCES\n') 
+     print(f'Base Files setup for fold at {BASE_PATH}/{FOLDER_NAME}/{FOLD_PATH}/.')
+     
+
+# def setup_directory(FOLDER_NAME):
+#     paths_to_create = [  
+
+#                         f'FeatureImportanceResults/TestTrainIndices',
+#                         f'FeatureImportanceResults/Evolution', 
+#                         f'FeatureImportanceResults/TestTrainIndices/TestTrainSplit', 
+#                         f'FeatureImportanceResults/TestTrainIndices/CrossValidation',
+#                         f'FeatureImportanceResults/TestTrainIndices/Nulls', 
+#                         f'FeatureImportanceResults/{FOLDER_NAME}/TestTrainIndices/Nulls']
+
+    
+    
+    # performance_file_path = f'FeatureImportanceResults/{FOLDER_NAME}/performance.txt'
+    # if not file_exists(performance_file_path):
+    #     with open(performance_file_path, 'w+') as f:
+    #             f.write(f'MODEL PERFORMANCES\n')
+    
 
 def get_full_data(START_YEAR_TRAIN, YEARS_TO_TRAIN):
         df_full = pd.read_csv(f'FinalData/FinalData{START_YEAR_TRAIN}_1.csv')
@@ -195,11 +232,45 @@ def split_XY(df_full):
     X = df_full[X_cols]
     return X, Y
 
-def get_new_test_train_inds(X, Y, df_full, FOLDER_NAME):
-    ## Test train split
-    #split into two groups where no muni in train set is tested
-    #then do a second split by year so that the train years are year n, n+1, n+2 and the test set uses n+3.
-    n_folds = 10 
+def get_3_fold_test_train(X, Y, df_full, SAVE = True):    
+    n_folds = 3 
+    munis = df_full['ID'].values
+    group_kfold = GroupKFold(n_splits = n_folds)
+    muni_kfold = group_kfold.split(X, Y, munis) 
+    train_indices, test_indices = [list(traintest) for traintest in zip(*muni_kfold)]
+    folds = [*zip(train_indices,test_indices)]
+
+    if SAVE:
+        [train_1, train_2, train_3] = [folds[0][0], folds[1][0], folds[2][0]]
+        pd.DataFrame([train_1, train_2, train_3]).T.to_csv('FeatureImportanceResults/TestTrainIndices/TestTrainSplit/train_indices.csv')
+
+        [test_1, test_2, test_3] = [folds[0][1], folds[1][1], folds[2][1]]
+        pd.DataFrame([test_1, test_2, test_3]).T.to_csv('FeatureImportanceResults/TestTrainIndices/TestTrainSplit/test_indices.csv')
+
+    return folds
+
+def plot_3_folds(X, df_full, folds, FILE_PATH):    
+    gdf = gpd.GeoDataFrame(X, geometry = gpd.points_from_xy(df_full.x, df_full.y))
+    XYs = gdf['geometry']
+
+    fig, axs = plt.subplots(1, 3, figsize=(25, 16))
+    marker_size = 0.01
+
+    for i in range(3):
+        ax = axs[i]
+        this_train_inds = folds[i][0]
+        this_test_inds = folds[i][1]
+
+        XYs[this_test_inds].plot(ax=ax, color = 'red', markersize=marker_size, label = 'Test')
+        XYs[this_train_inds].plot(ax=ax, color = 'black', markersize=marker_size, label = 'Train')
+        ax.set_title(f"Fold {i+1}")
+    plt.legend(markerscale=100)
+    plt.tight_layout()
+    plt.savefig(FILE_PATH + '/FoldPlot')
+    plt.show()
+
+def get_new_test_train_inds(X, Y, df_full, FOLDER_NAME, save = False):
+    n_folds = 3 
     munis = df_full['ID'].values
     group_kfold = GroupKFold(n_splits = n_folds)
     muni_kfold = group_kfold.split(X, Y, munis) 
@@ -216,11 +287,12 @@ def get_new_test_train_inds(X, Y, df_full, FOLDER_NAME):
 
     print(f'Test set pct of data: {len(test_inds)/(len(train_inds) + len(test_inds)) * 100}')
 
-    np.save('FeatureImportanceResults/TestTrainIndices/TestTrainSplit/test_inds.npy', test_inds)
-    np.save('FeatureImportanceResults/TestTrainIndices/TestTrainSplit/train_inds.npy', train_inds)
-    np.save(f'FeatureImportanceResults/{FOLDER_NAME}/TestTrainIndices/TestTrainSplit/train_inds.npy', train_inds)
-    np.save(f'FeatureImportanceResults/{FOLDER_NAME}/TestTrainIndices/TestTrainSplit/test_inds.npy', test_inds)
-    print('New test/train indices generated and saved in TestTrainSplit')
+    if save:
+        np.save('FeatureImportanceResults/TestTrainIndices/TestTrainSplit/test_inds.npy', test_inds)
+        np.save('FeatureImportanceResults/TestTrainIndices/TestTrainSplit/train_inds.npy', train_inds)
+        np.save(f'FeatureImportanceResults/{FOLDER_NAME}/TestTrainIndices/TestTrainSplit/train_inds.npy', train_inds)
+        np.save(f'FeatureImportanceResults/{FOLDER_NAME}/TestTrainIndices/TestTrainSplit/test_inds.npy', test_inds)
+        print('New test/train indices generated and saved in TestTrainSplit')
 
     return train_inds, test_inds
 
@@ -232,7 +304,8 @@ def get_prev_test_train_inds(FOLDER_NAME):
         print('Existing test/train indices read in from previous iteration')
         return train_inds, test_inds
 
-def split_test_train(df_full, train_inds, test_inds, PREDICT_YEAR, PLOT_ENTIRE_AREA, NEW_INDICES, FILE_PATH, FOLDER_NAME):
+
+def split_test_train(df_full, train_inds, test_inds, PREDICT_YEAR, PLOT_ENTIRE_AREA, FILE_PATH):
         X_cols = get_x_cols()
         #Split data into test/train sets
         df_full_test = df_full.iloc[test_inds].reset_index(drop=True)
@@ -240,14 +313,14 @@ def split_test_train(df_full, train_inds, test_inds, PREDICT_YEAR, PLOT_ENTIRE_A
 
         #test data has only the last year with unseen spatial sampless
         df_full_test = df_full_test[df_full_test.year == PREDICT_YEAR]
-        df_full_test[['x','y']].to_csv(f'FeatureImportanceResults/{FOLDER_NAME}/TestTrainIndices/TestTrainSplit/test_coordinates.csv')
+        df_full_test[['x','y']].to_csv(f'{FILE_PATH}/TestTrainIndices/TestTrainSplit/test_coordinates.csv')
 
         #train data has only the 3 train years 
         df_full_train = df_full_train[df_full_train.year < PREDICT_YEAR]
 
         #save the munis that we're testing on for later
-        np.save(f'FeatureImportanceResults/{FOLDER_NAME}/TestTrainIndices/TestTrainSplit/train_munis.npy', df_full_train['ID'].values)
-        np.save(f'FeatureImportanceResults/TestTrainIndices/TestTrainSplit/train_munis.npy', df_full_train['ID'].values)
+        np.save(f'{FILE_PATH}/TestTrainIndices/TestTrainSplit/train_munis.npy', df_full_train['ID'].values)
+        np.save(f'{FILE_PATH}/TestTrainIndices/TestTrainSplit/train_munis.npy', df_full_train['ID'].values)
         
 
         Y_test = df_full_test['forest_diff']
@@ -273,7 +346,7 @@ def split_test_train(df_full, train_inds, test_inds, PREDICT_YEAR, PLOT_ENTIRE_A
             plt.tight_layout()
 
             # Save the figure
-            plt.savefig(FILE_PATH + 'EntirePlot')
+            plt.savefig(FILE_PATH + '/EntirePlot')
             plt.show()
             
         return X_train, X_test, Y_train, Y_test

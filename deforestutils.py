@@ -249,7 +249,7 @@ def get_3_fold_test_train(X, Y, df_full, SAVE = True):
 
     return folds
 
-def plot_3_folds(X, df_full, folds, FILE_PATH):    
+def plot_3_folds(X, df_full, folds, FILE_PATH, method):    
     gdf = gpd.GeoDataFrame(X, geometry = gpd.points_from_xy(df_full.x, df_full.y))
     XYs = gdf['geometry']
 
@@ -266,7 +266,7 @@ def plot_3_folds(X, df_full, folds, FILE_PATH):
         ax.set_title(f"Fold {i+1}")
     plt.legend(markerscale=100)
     plt.tight_layout()
-    plt.savefig(FILE_PATH + '/FoldPlot')
+    plt.savefig(FILE_PATH + f'/{method}_FoldPlot')
     plt.show()
 
 def get_new_test_train_inds(X, Y, df_full, FOLDER_NAME, save = False):

@@ -1,6 +1,6 @@
 import numpy as np
 import geopandas as gpd
-from shapely.geometry import Polygon, asPolygon
+from shapely.geometry import Polygon, Polygon
 from matplotlib.collections import PolyCollection
 from sklearn.neighbors import BallTree
 from .utils import convert_geodataframe, geometry_to_2d, convert_numpy
@@ -109,7 +109,7 @@ def construct_square_grid(XYs, tiles_x, tiles_y):
     top_left = np.add(minx, np.multiply(rows, dx)), np.add(miny, np.multiply(columns+1, dy))
 
     polys = np.vstack([bottom_left, bottom_right, top_right, top_left]).reshape(4,2,-1)
-    polys = [asPolygon(polys[:,:,i]) for i in range(tiles_x*tiles_y)]
+    polys = [Polygon(polys[:,:,i]) for i in range(tiles_x*tiles_y)]
 
     grid = gpd.GeoDataFrame({'geometry':polys})
 

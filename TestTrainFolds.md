@@ -2,12 +2,13 @@
 TestTrainFolds
 ==============
 
-# Random Fold Assignment, spatial dependence is ignored
+# Random Fold Assignment
   
+Points split at random, spatial dependence is ignored  
 ![Test/Train split plot](FeatureImportanceResults/2004_2005_2006_PREDICT_2007/random_FoldPlot.png)
 # Municipality
   
-Points assigned to test and train sets randomly, most conservative since no municipality in train set is seen in test set.  
+Entire municipalities split at random, most conservative since no municipality in train set is seen in test set.  
 ![Test/Train split plot](FeatureImportanceResults/2004_2005_2006_PREDICT_2007/municipality_FoldPlot.png)
 # Spatial K Fold
   
@@ -15,7 +16,7 @@ spatial structure is preserved when assigning data points to each fold, neighbor
 ![Test/Train split plot](FeatureImportanceResults/2004_2005_2006_PREDICT_2007/spatialkfold_FoldPlot.png)
 # H Block
   
-divide our data into non-consecutive blocks of a fixed size, let's say h. Each block consists of a group of consecutive data points. The purpose is to capture the correlation or dependence structure within each block, ensures that the training and validation sets have neighboring data points  
+Divide data into non-consecutive blocks fixed size h, let's say h where block is set of consecutive data points, purpose is to capture  dependence structure within each block, ensures that the training and validation sets have neighboring data points  
 ![Test/Train split plot](FeatureImportanceResults/2004_2005_2006_PREDICT_2007/hblock_FoldPlot.png)
 # Picking between these options:
 

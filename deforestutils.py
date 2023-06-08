@@ -232,6 +232,45 @@ def split_XY(df_full):
     X = df_full[X_cols]
     return X, Y
 
+def get_3_fold_test_train(X, Y, df_full, method = 'municipality', SAVE = True): 
+    n_folds = 3
+    
+    if method == 'municipality':
+        munis = df_full['ID'].values
+        group_kfold = GroupKFold(n_splits = n_folds)
+        muni_kfold = group_kfold.split(X, Y, munis) 
+        train_indices, test_indices = [list(traintest) for traintest in zip(*muni_kfold)]
+        folds = [*zip(train_indices,test_indices)]
+
+    if method == 'random':
+        random_kfold = KFold(n_splits=n_folds, shuffle=True, random_state=42)
+        random_kfold_split = random_kfold.split(X, Y) 
+        train_indices, test_indices = [list(traintest) for traintest in zip(*random_kfold_split)]
+        folds = [*zip(train_indices,test_indices)]
+    
+    if method == 'spatialkfold':
+        gdf = gpd.GeoDataFrame(X, geometry = gpd.points_from_xy(df_full.x, df_full.y))
+        XYs = gdf['geometry']
+        skcv = spacv.SKCV(n_splits=3, buffer_radius=0.01).split(XYs)
+        train_indices, test_indices = [list(traintest) for traintest in zip(*skcv)]
+        folds = [*zip(train_indices,test_indices)]
+    
+    if method == 'hblock':
+        gdf = gpd.GeoDataFrame(X, geometry = gpd.points_from_xy(df_full.x, df_full.y))
+        XYs = gdf['geometry']
+        skcv = spacv.HBLOCK(tiles_x = 5,tiles_y = 5, method='optimized_random', buffer_radius=1, n_groups = 3, data = df_full, random_state = 42).split(XYs)
+        train_indices, test_indices = [list(traintest) for traintest in zip(*skcv)]
+        folds = [*zip(train_indices,test_indices)]
+
+    if SAVE:
+        [train_1, train_2, train_3] = [folds[0][0], folds[1][0], folds[2][0]]
+        pd.DataFrame([train_1, train_2, train_3]).T.to_csv('FeatureImportanceResults/TestTrainIndices/TestTrainSplit/train_indices.csv')
+
+        [test_1, test_2, test_3] = [folds[0][1], folds[1][1], folds[2][1]]
+        pd.DataFrame([test_1, test_2, test_3]).T.to_csv('FeatureImportanceResults/TestTrainIndices/TestTrainSplit/test_indices.csv')
+
+    return folds
+
 def get_3_fold_test_train(X, Y, df_full, SAVE = True):    
     n_folds = 3 
     munis = df_full['ID'].values

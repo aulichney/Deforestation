@@ -1,5 +1,0 @@
-conda create -n "defor" python=3.8.8
-
-conda create -n "defor" python=3.3.0 ipython
-
-pipenv --python 3.8.8

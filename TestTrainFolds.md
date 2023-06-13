@@ -16,7 +16,7 @@ spatial structure is preserved when assigning data points to each fold, neighbor
 ![Test/Train split plot](FeatureImportanceResults/2004_2005_2006_PREDICT_2007/spatialkfold_FoldPlot.png)
 # H Block
   
-Divide data into non-consecutive blocks fixed size h, let's say h where block is set of consecutive data points, purpose is to capture  dependence structure within each block, ensures that the training and validation sets have neighboring data points  
+divide our data into non-consecutive blocks of a fixed size, let's say h. Each block consists of a group of consecutive data points. The purpose is to capture the correlation or dependence structure within each block, ensures that the training and validation sets have neighboring data points  
 ![Test/Train split plot](FeatureImportanceResults/2004_2005_2006_PREDICT_2007/hblock_FoldPlot.png)
 # Picking between these options:
 

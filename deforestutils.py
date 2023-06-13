@@ -97,24 +97,6 @@ def setup_fold_files(BASE_PATH, FOLDER_NAME, FOLD_PATH):
      print(f'Base Files setup for fold at {BASE_PATH}/{FOLDER_NAME}/{FOLD_PATH}/.')
      
 
-# def setup_directory(FOLDER_NAME):
-#     paths_to_create = [  
-
-#                         f'FeatureImportanceResults/TestTrainIndices',
-#                         f'FeatureImportanceResults/Evolution', 
-#                         f'FeatureImportanceResults/TestTrainIndices/TestTrainSplit', 
-#                         f'FeatureImportanceResults/TestTrainIndices/CrossValidation',
-#                         f'FeatureImportanceResults/TestTrainIndices/Nulls', 
-#                         f'FeatureImportanceResults/{FOLDER_NAME}/TestTrainIndices/Nulls']
-
-    
-    
-    # performance_file_path = f'FeatureImportanceResults/{FOLDER_NAME}/performance.txt'
-    # if not file_exists(performance_file_path):
-    #     with open(performance_file_path, 'w+') as f:
-    #             f.write(f'MODEL PERFORMANCES\n')
-    
-
 def get_full_data(START_YEAR_TRAIN, YEARS_TO_TRAIN):
         df_full = pd.read_csv(f'FinalData/FinalData{START_YEAR_TRAIN}_1.csv')
         df_full = pd.concat([df_full, pd.read_csv(f'FinalData/FinalData{START_YEAR_TRAIN}_2.csv')])
@@ -140,101 +122,8 @@ def get_full_data(START_YEAR_TRAIN, YEARS_TO_TRAIN):
 def get_x_cols():
     with open('input_data.json', 'r') as file:
         data = json.load(file)
-
-    # Extract the keys from the dictionary
     return np.array(list(data.keys()))
-    
-
-# def get_x_cols():
-#     return ['year', 'rain1', 'elevation', 'slope', 'aspect', 'near_mines',
-#         'near_roads', 'near_hidrovia', 'indigenous_homol',
-#         'mun_election_year', 'new_forest_code', 'lula', 'dilma', 'temer',
-#         'bolsonaro', 'fed_election_year', 'populacao', 'pib_pc', 'ironore',
-#         'silver', 'copper', 'gold', 'soy_price', 'beef_price', 'ag_jobs',
-#         'mining_jobs', 'public_jobs', 'construction_jobs', 'PIB',
-#         'n_companies_PUBLIC ADMIN', 'n_companies_AGRICULTURE',
-#         'n_companies_FOOD AND DRINKS', 'n_companies_ACCOMODATION AND FOOD',
-#         'n_companies_EQUIPMENT RENTAL', 'n_companies_WHOLESALE',
-#         'n_companies_ASSOCIATIVE ACTIVITIES',
-#         'n_companies_AUTOMOBILES AND TRANSPORT',
-#         'n_companies_FINANCIAL ASSISTANCE',
-#         'n_companies_TRADE REP VEHICLES', 'n_companies_CONSTRUCTION',
-#         'n_companies_MAIL AND TELECOM', 'n_companies_CULTURE AND SPORT',
-#         'n_companies_EDITING AND PRINTING', 'n_companies_EDUCATION',
-#         'n_companies_ELECTRICITY AND GAS', 'n_companies_FINANCES',
-#         'n_companies_CLEANING AND SEWAGE', 'n_companies_MACHINERY',
-#         'n_companies_BASIC METALLURGY', 'n_companies_MINING',
-#         'n_companies_WOOD PROD',
-#         'n_companies_NON-METALLIC MINERAL PRODUCTS', 'n_companies_HEALTH',
-#         'n_companies_SERVICES FOR COMPANIES',
-#         'n_companies_PERSONAL SERVICES', 'n_companies_TRANSPORTATION',
-#         'n_companies_GROUND TRANSPORT',
-#         'n_companies_WATER TREATMENT AND DISTRIBUTION',
-#         'n_companies_RETAIL', 'n_companies_COMPUTING',
-#         'n_companies_INSURANCE AND SOCIAL SECURITY',
-#         'n_companies_METALLIC PRODUCTS', 'n_companies_DOMESTIC SERVICES',
-#         'n_companies_FORESTRY', 'n_companies_CLOTHING',
-#         'n_companies_PAPER', 'n_companies_INTERNATIONAL BODIES',
-#         'n_companies_OIL AND GAS', 'n_companies_FISHING AND AQUACULTURE',
-#         'n_companies_CHEMICALS', 'n_companies_WATER-BASED TRANSPORTATION',
-#         'n_companies_REAL ESTATE', 'n_companies_RECYCLING',
-#         'n_companies_LEATHERS AND FOOTWEAR',
-#         'n_companies_RUBBER AND PLASTIC', 'n_companies_TEXTILES',
-#         'n_companies_RESEARCH AND DEVELOPMENT',
-#         'n_companies_AERO TRANSPORT', 'n_companies_SMOKE',
-#         'n_companies_PETROLEUM REFINING', 'n_companies_',
-#         'n_jobs_PUBLIC ADMIN', 'n_jobs_AGRICULTURE',
-#         'n_jobs_FOOD AND DRINKS', 'n_jobs_ACCOMODATION AND FOOD',
-#         'n_jobs_EQUIPMENT RENTAL', 'n_jobs_WHOLESALE',
-#         'n_jobs_ASSOCIATIVE ACTIVITIES',
-#         'n_jobs_AUTOMOBILES AND TRANSPORT', 'n_jobs_FINANCIAL ASSISTANCE',
-#         'n_jobs_TRADE REP VEHICLES', 'n_jobs_CONSTRUCTION',
-#         'n_jobs_MAIL AND TELECOM', 'n_jobs_CULTURE AND SPORT',
-#         'n_jobs_EDITING AND PRINTING', 'n_jobs_EDUCATION',
-#         'n_jobs_ELECTRICITY AND GAS', 'n_jobs_FINANCES',
-#         'n_jobs_CLEANING AND SEWAGE', 'n_jobs_MACHINERY',
-#         'n_jobs_BASIC METALLURGY', 'n_jobs_MINING', 'n_jobs_WOOD PROD',
-#         'n_jobs_NON-METALLIC MINERAL PRODUCTS', 'n_jobs_HEALTH',
-#         'n_jobs_SERVICES FOR COMPANIES', 'n_jobs_PERSONAL SERVICES',
-#         'n_jobs_TRANSPORTATION', 'n_jobs_GROUND TRANSPORT',
-#         'n_jobs_WATER TREATMENT AND DISTRIBUTION', 'n_jobs_RETAIL',
-#         'n_jobs_COMPUTING', 'n_jobs_INSURANCE AND SOCIAL SECURITY',
-#         'n_jobs_METALLIC PRODUCTS', 'n_jobs_DOMESTIC SERVICES',
-#         'n_jobs_FORESTRY', 'n_jobs_CLOTHING', 'n_jobs_PAPER',
-#         'n_jobs_INTERNATIONAL BODIES', 'n_jobs_OIL AND GAS',
-#         'n_jobs_FISHING AND AQUACULTURE', 'n_jobs_CHEMICALS',
-#         'n_jobs_WATER-BASED TRANSPORTATION', 'n_jobs_REAL ESTATE',
-#         'n_jobs_RECYCLING', 'n_jobs_LEATHERS AND FOOTWEAR',
-#         'n_jobs_RUBBER AND PLASTIC', 'n_jobs_TEXTILES',
-#         'n_jobs_RESEARCH AND DEVELOPMENT', 'n_jobs_AERO TRANSPORT',
-#         'n_jobs_SMOKE', 'n_jobs_PETROLEUM REFINING', 'n_jobs_',
-#         'n_jobs_TOTAL INDUSTRIAL', 'n_jobs_TOTAL SERVICE',
-#         'n_companies_TOTAL INDUSTRIAL', 'n_companies_TOTAL SERVICE',
-#         'n_companies_TOTAL', 'n_jobs_TOTAL', 'murder_threats',
-#         'assassination', 'assassination_attempt', 'f_emitted_count',
-#         'expen_agri', 'expen_env_man', 'expen_agr_org', 'expen_mining',
-#         'expen_petrol', 'expen_prom_ani_pro', 'expen_prom_veg_pro',
-#         'expen_other_agr', 'expen_agr_defense', 'expen_min_fuel',
-#         'illegal_mining', 'illegal_other', 'illegal_industry', 'audits',
-#         'emiss_pec_full', 'emiss_agr_full', 'emiss_agropec_full',
-#         'incumbant', 'term_limited_seat', 'special',
-#         'overall_winner_complete_college', 
-#         'overall_winner_feminino', 'overall_winner_agriculture_job',
-#         'overall_winner_public_service_job', 'overall_winner_health_job',
-#         'overall_winner_corporate_job', 'overall_winner_law_job',
-#         'overall_winner_technical_job', 'overall_winner_professional_job',
-#         'overall_winner_mining_job', 'overall_winner_partido_PT',
-#         'overall_winner_partido_PMDB_MDB', 'overall_winner_partido_PSDB',
-#         'overall_winner_partido_DEM', 'overall_winner_partido_PL',
-#         'overall_winner_partido_other', 'runnerup_partido_PT',
-#         'runnerup_partido_PMDB_MDB', 'runnerup_partido_PSDB',
-#         'runnerup_partido_DEM', 'runnerup_partido_PL',
-#         'runnerup_partido_other', 'winner_votes_proportion',
-#         'vote_participation_proportion',
-#         'forest_formation', 'savanna', 'mangrove', 'silvicultura',
-#         'pasture', 'sugarcane', 'mosaic_ag', 'urban', 'mining', 'water',
-#         'soybean', 'rice', 'other_crop', 'coffee', 'citrus',
-#         'other_perennial', 'forest_lag']    
+      
 
 def split_XY(df_full):
     X_cols  = get_x_cols()
@@ -268,7 +157,7 @@ def get_3_fold_test_train(X, Y, df_full, method = 'municipality', SAVE = True):
     if method == 'hblock':
         gdf = gpd.GeoDataFrame(X, geometry = gpd.points_from_xy(df_full.x, df_full.y))
         XYs = gdf['geometry']
-        skcv = spacv.HBLOCK(tiles_x = 5,tiles_y = 5, method='optimized_random', buffer_radius=1, n_groups = 3, data = df_full, random_state = 42).split(XYs)
+        skcv = spacv.HBLOCK(tiles_x = 36,tiles_y = 36, method='optimized_random', buffer_radius=0.01, n_groups = 3, data = df_full, random_state = 42).split(XYs)
         train_indices, test_indices = [list(traintest) for traintest in zip(*skcv)]
         folds = [*zip(train_indices,test_indices)]
 
@@ -281,22 +170,22 @@ def get_3_fold_test_train(X, Y, df_full, method = 'municipality', SAVE = True):
 
     return folds
 
-def get_3_fold_test_train(X, Y, df_full, SAVE = True):    
-    n_folds = 3 
-    munis = df_full['ID'].values
-    group_kfold = GroupKFold(n_splits = n_folds)
-    muni_kfold = group_kfold.split(X, Y, munis) 
-    train_indices, test_indices = [list(traintest) for traintest in zip(*muni_kfold)]
-    folds = [*zip(train_indices,test_indices)]
+# def get_3_fold_test_train(X, Y, df_full, SAVE = True):    
+#     n_folds = 3 
+#     munis = df_full['ID'].values
+#     group_kfold = GroupKFold(n_splits = n_folds)
+#     muni_kfold = group_kfold.split(X, Y, munis) 
+#     train_indices, test_indices = [list(traintest) for traintest in zip(*muni_kfold)]
+#     folds = [*zip(train_indices,test_indices)]
 
-    if SAVE:
-        [train_1, train_2, train_3] = [folds[0][0], folds[1][0], folds[2][0]]
-        pd.DataFrame([train_1, train_2, train_3]).T.to_csv('FeatureImportanceResults/TestTrainIndices/TestTrainSplit/train_indices.csv')
+#     if SAVE:
+#         [train_1, train_2, train_3] = [folds[0][0], folds[1][0], folds[2][0]]
+#         pd.DataFrame([train_1, train_2, train_3]).T.to_csv('FeatureImportanceResults/TestTrainIndices/TestTrainSplit/train_indices.csv')
 
-        [test_1, test_2, test_3] = [folds[0][1], folds[1][1], folds[2][1]]
-        pd.DataFrame([test_1, test_2, test_3]).T.to_csv('FeatureImportanceResults/TestTrainIndices/TestTrainSplit/test_indices.csv')
+#         [test_1, test_2, test_3] = [folds[0][1], folds[1][1], folds[2][1]]
+#         pd.DataFrame([test_1, test_2, test_3]).T.to_csv('FeatureImportanceResults/TestTrainIndices/TestTrainSplit/test_indices.csv')
 
-    return folds
+#     return folds
 
 def plot_3_folds(X, df_full, folds, FILE_PATH, method):    
     gdf = gpd.GeoDataFrame(X, geometry = gpd.points_from_xy(df_full.x, df_full.y))

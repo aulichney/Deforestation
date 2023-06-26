@@ -1,0 +1,10 @@
+- "near_mines", "near_roads", "near_hidrovia" Are the units in meters? What is the original source? 
+- indigenous_homol
+
+
+
+
+
+ "near_mines": "Distance to nearest mine in XX (Source:XX)",
+    "near_roads": "Distance to nearest road in XX (Source:XX)",
+    "near_hidrovia": "Distance to nearest river in XX (Source:XX)",

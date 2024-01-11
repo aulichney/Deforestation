@@ -1,5 +1,10 @@
 - "near_mines", "near_roads", "near_hidrovia" Are the units in meters? What is the original source? 
-- indigenous_homol
+- "indigenous_homol" What is the source? 
+- "populacao",  What is source? 
+- "PIB" what is the source and units? 
+- "ironore", "silver", "copper", "gold" What is the source and unit? 
+- "soy_price", "beef_price" What is the source and unit? 
+ 
 
 
 
